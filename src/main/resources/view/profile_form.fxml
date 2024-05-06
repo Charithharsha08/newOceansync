@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="959.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ProfileFormController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="79.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/icon/user.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="35.0" layoutY="304.0" prefHeight="48.0" prefWidth="216.0" text="Label">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="378.0" prefHeight="48.0" prefWidth="216.0" text="Label">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="852.0" prefHeight="25.0" prefWidth="209.0" styleClass="pane_11" stylesheets="@../css/design.css" text="LOG OUT">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/switch.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

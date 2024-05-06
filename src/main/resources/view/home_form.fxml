@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="959.0" prefWidth="1053.0" styleClass="background" stylesheets="@../css/design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.HomeFormController">
+   <children>
+      <Label layoutX="66.0" layoutY="89.0" prefHeight="86.0" prefWidth="233.0" text="GOOD">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="66.0" />
+         </font>
+      </Label>
+      <Label layoutX="305.0" layoutY="95.0" prefHeight="74.0" prefWidth="683.0" text="MORNING">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="66.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="652.0" fitWidth="666.0" layoutX="314.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

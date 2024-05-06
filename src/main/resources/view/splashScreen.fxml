@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="296.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.SplashScreenController">
+   <children>
+      <ImageView fitHeight="296.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/INTO%20THE.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="recMain" arcHeight="5.0" arcWidth="5.0" fill="#aac8e384" height="12.0" layoutX="69.0" layoutY="262.0" opacity="0.35" stroke="BLACK" strokeType="INSIDE" width="469.0" />
+      <Rectangle fx:id="recSub" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="12.0" layoutX="67.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+      <Label layoutX="20.0" layoutY="259.0" text="Loading" textFill="WHITE" />
+      <Label fx:id="lblProgress" layoutX="545.0" layoutY="260.0" text="10%" textFill="WHITE" />
+      <Label layoutX="189.0" layoutY="37.0" text="Version 1.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

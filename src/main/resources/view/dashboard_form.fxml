@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.DashboardFormController">
+   <children>
+      <AnchorPane prefHeight="959.0" prefWidth="308.0">
+         <children>
+            <VBox prefHeight="959.0" prefWidth="308.0">
+               <children>
+                  <Pane prefHeight="121.0" prefWidth="315.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" layoutX="226.0" layoutY="27.0" prefHeight="47.0" prefWidth="74.0" text=" ">
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../asserts/image/icon/burger-bar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ImageView fitHeight="91.0" fitWidth="84.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/bg-removed-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="103.0" layoutY="32.0" prefHeight="35.0" prefWidth="126.0" text="Submarine">
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="107.0" layoutY="54.0" prefHeight="30.0" prefWidth="115.0" text="Diving Center" textAlignment="CENTER">
+                           <font>
+                              <Font name="Copperplate Gothic Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <JFXButton buttonType="RAISED" prefHeight="78.0" prefWidth="328.0" text="Home">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="176.0" prefHeight="86.0" prefWidth="400.0" text="Stock">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/ready-stock.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="262.0" prefHeight="86.0" prefWidth="400.0" text="Employee">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/business-people.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="348.0" prefHeight="86.0" prefWidth="400.0" text="Customer">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/customer.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="434.0" prefHeight="86.0" prefWidth="400.0" text="Activity">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/exercise.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="520.0" prefHeight="86.0" prefWidth="400.0" text="Cources">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="606.0" prefHeight="86.0" prefWidth="400.0" text="Payment">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/payment-method.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="692.0" prefHeight="86.0" prefWidth="400.0" text="Discount">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../asserts/image/icon/discount.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="315.0" prefHeight="959.0" prefWidth="1053.0" />
+   </children>
+</AnchorPane>
