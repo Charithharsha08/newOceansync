@@ -88,6 +88,8 @@ public class AddStockController {
             boolean stockSave = StockRepo.stockSave(stock);
             if (stockSave) {
                 new Alert(Alert.AlertType.INFORMATION, "Stock Save").show();
+                clearFields();
+                loadNextStockId();
             }
             clearFields();
         } catch (SQLException e) {

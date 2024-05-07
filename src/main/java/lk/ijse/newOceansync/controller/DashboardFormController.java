@@ -62,7 +62,15 @@ public class DashboardFormController {
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
-
+        handleSelection(btnStock);
+        AnchorPane customerPane = null;
+        try {
+            customerPane = FXMLLoader.load(this.getClass().getResource("/view/customer_form.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(customerPane);
     }
 
     @FXML
@@ -72,7 +80,15 @@ public class DashboardFormController {
 
     @FXML
     void btnEmoloyeeOnAction(ActionEvent event) {
-
+        handleSelection(btnEmployee);
+        AnchorPane homePane = null;
+        try {
+            homePane = FXMLLoader.load(this.getClass().getResource("/view/employee_form.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(homePane);
     }
 
     @FXML

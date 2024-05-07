@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.EmployeeFormController">
    <children>
       <Label layoutX="247.0" layoutY="34.0" prefHeight="98.0" prefWidth="602.0" text="EMPLOYEE MANAGEMENT">
@@ -60,7 +59,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="849.0" layoutY="694.0" onAction="#btnDeleteStockOnAction" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Employee">
+      <JFXButton buttonType="RAISED" layoutX="849.0" layoutY="694.0" onAction="#btnDeleteEmployeeOnAction" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Employee">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
