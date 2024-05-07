@@ -42,14 +42,14 @@ public class SplashScreenController {
     }
 
     private void openLoginForm() {
-//        try {
-//            AnchorPane node = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
-//            Scene scene = new Scene(node);
-//            Stage stage = new Stage();
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            AnchorPane node = FXMLLoader.load(getClass().getResource("/view/login_page.fxml"));
+            Scene scene = new Scene(node);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

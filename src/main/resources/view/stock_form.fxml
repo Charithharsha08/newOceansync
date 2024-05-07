@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="768.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.StockFormController">
+   <children>
+      <Label layoutX="237.0" layoutY="24.0" prefHeight="98.0" prefWidth="670.0" text="STOCK MANAGEMENT">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="65.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="72.0" layoutX="147.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/icon/ready-stock.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="147.0" layoutY="691.0" onAction="#btnAddStockOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Stock">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-add-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="363.0" layoutY="691.0" onAction="#btnStockUpdateOnAction" prefHeight="42.0" prefWidth="128.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update Stock">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="569.0" layoutY="691.0" onAction="#btnDeleteStockOnAction" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Stock">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="691.0" onAction="#btnAllStockOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Stock">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-view-all-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <AnchorPane fx:id="smallCenterNode" layoutX="37.0" layoutY="122.0" prefHeight="542.0" prefWidth="988.0" />
+   </children>
+</AnchorPane>

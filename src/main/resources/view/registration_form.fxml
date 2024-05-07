@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="518.0" prefWidth="404.0" stylesheets="@../css/design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.RegistrationFormController">
    <styleClass>
       <String fx:value="background" />
@@ -44,8 +43,22 @@
             <Image url="@../asserts/image/icon/padlock.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="132.0" layoutY="408.0" onAction="#btnRegisterOnAction" prefHeight="27.0" prefWidth="117.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Register" />
-      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="62.0" styleClass="pane_11" stylesheets="@../css/design.css" text="Clear" />
+      <JFXButton buttonType="RAISED" layoutX="132.0" layoutY="408.0" onAction="#btnRegisterOnAction" prefHeight="32.0" prefWidth="117.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Register">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-register-96.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="90.0" styleClass="pane_11" stylesheets="@../css/design.css" text="Clear">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-clear-50.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
       <Label layoutX="66.0" layoutY="65.0" prefHeight="90.0" prefWidth="273.0" text="&quot;Dive into our center, &#10;where adventure awaits! &#10;Complete our registration for tailored services and &#10;stay updated on exciting opportunities. &#10;Let's explore the wonders together!&quot;" textAlignment="CENTER" />
    </children>
 </AnchorPane>
