@@ -42,7 +42,7 @@ public class AddStockController {
         lblStockId.setText(nextId);
     }
 
-    private static String nextId(String currentId) {
+    private  String nextId(String currentId) {
         if (currentId != null) {
             // String[] split = currentId.split("O");
             String[] split = currentId.split("S");

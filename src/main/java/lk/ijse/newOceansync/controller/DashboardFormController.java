@@ -62,7 +62,7 @@ public class DashboardFormController {
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
-        handleSelection(btnStock);
+        handleSelection(btnCustomer);
         AnchorPane customerPane = null;
         try {
             customerPane = FXMLLoader.load(this.getClass().getResource("/view/customer_form.fxml"));

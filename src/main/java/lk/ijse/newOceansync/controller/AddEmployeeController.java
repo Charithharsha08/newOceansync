@@ -57,12 +57,12 @@ public class AddEmployeeController {
         lblId.setText(nextId);
     }
 
-    private static String nextId(String currentId) {
+    private  String nextId(String currentId) {
         if (currentId != null) {
             // String[] split = currentId.split("O");
             String[] split = currentId.split("E");
-            System.out.println("Arrays.toString(split) = " + Arrays.toString(split));
-            System.out.println("Arrays.toString(split) = " + split[0]);
+          //  System.out.println("Arrays.toString(split) = " + Arrays.toString(split));
+//System.out.println("Arrays.toString(split) = " + split[0]);
             int id = Integer.parseInt(split[1]);    //2
             return "E" + ++id;
 

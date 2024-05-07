@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="678.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ActivityFormController">
+   <children>
+      <ImageView fitHeight="508.0" fitWidth="670.0" layoutX="278.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/pngegg.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="247.0" layoutY="34.0" prefHeight="98.0" prefWidth="670.0" text="ACTIVITY MANAGE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="65.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="72.0" layoutX="157.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/icon/ready-stock.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="centerNode" layoutX="73.0" layoutY="125.0" prefHeight="459.0" prefWidth="908.0" />
+      <JFXButton buttonType="RAISED" layoutX="390.0" layoutY="606.0" onAction="#btnAddActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Activity">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-add-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="532.0" layoutY="607.0" onAction="#btnActivityUpdateOnAction" prefHeight="42.0" prefWidth="138.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update Activity">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="690.0" layoutY="606.0" onAction="#btnDeleteActivityOnAction" prefHeight="42.0" prefWidth="132.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Activity">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="845.0" layoutY="606.0" onAction="#btnAllActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Activity">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-view-all-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>
