@@ -25,19 +25,19 @@
             <Font name="Century Gothic Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserId" labelFloat="true" layoutX="114.0" layoutY="186.0" onAction="#txtUserIdOnAction" prefHeight="25.0" prefWidth="209.0" promptText="User Id" />
+      <JFXTextField fx:id="txtUserId" labelFloat="true" layoutX="114.0" layoutY="186.0" onAction="#txtUserIdOnAction" onKeyReleased="#txtUserIdOnReleasedAction" prefHeight="25.0" prefWidth="209.0" promptText="User Id" />
       <ImageView fitHeight="32.0" fitWidth="25.0" layoutX="79.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icon/user.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="115.0" layoutY="261.0" onAction="#txtUserNameOnAction" prefHeight="25.0" prefWidth="209.0" promptText="User Name" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="115.0" layoutY="261.0" onAction="#txtUserNameOnAction" onKeyReleased="#txtUserNameOnReleasedAction" prefHeight="25.0" prefWidth="209.0" promptText="User Name" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="79.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icon/icons8-name-tag-woman-horizontal-50.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtPw" labelFloat="true" layoutX="117.0" layoutY="338.0" onAction="#txtPasswordOnAction" prefHeight="25.0" prefWidth="209.0" promptText="Password" />
+      <JFXTextField fx:id="txtPw" labelFloat="true" layoutX="117.0" layoutY="338.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnReleasedAction" prefHeight="25.0" prefWidth="209.0" promptText="Password" />
       <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="79.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icon/padlock.png" />
@@ -51,11 +51,11 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="90.0" styleClass="pane_11" stylesheets="@../css/design.css" text="Clear">
+      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="90.0" styleClass="pane_11" stylesheets="@../css/design.css" text="Back">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asserts/image/icon/icons8-clear-50.png" />
+                  <Image url="@../asserts/image/icon/reject.png" />
                </image>
             </ImageView>
          </graphic></JFXButton>

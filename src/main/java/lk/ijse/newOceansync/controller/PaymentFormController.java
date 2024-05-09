@@ -14,18 +14,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.newOceansync.db.DbConnection;
 import lk.ijse.newOceansync.model.*;
 import lk.ijse.newOceansync.model.tm.PaymentTm;
 import lk.ijse.newOceansync.repository.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PaymentFormController {
 
@@ -120,6 +123,7 @@ public class PaymentFormController {
 
     String activityId;
     String courceId;
+    String paymentId;
 
 
     public void initialize() {
@@ -457,7 +461,8 @@ public class PaymentFormController {
 
     @FXML
     void btnPlacePaymentOnAction(ActionEvent event) {
-        String paymentId = lblPaymentId.getText();
+
+         paymentId = lblPaymentId.getText();
         String type = (String) cmbPaymentType.getValue();
         double total = Double.parseDouble(lblNetTotal.getText());
         Date date = Date.valueOf(lblDate.getText());
@@ -671,6 +676,22 @@ public class PaymentFormController {
         stage.setTitle("Payment Form");
 
         stage.show();
+    }
+
+    public void btnPrintOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+
+
+            JasperDesign report = JRXmlLoader.load("src/main/resources/reports/reoport.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(report);
+
+            Map<String , Object> data = new HashMap<>();
+           // System.out.println(data);
+            data.put("paymentId", paymentId);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasperPrint, false);
+
+
     }
 }
 enum Type{

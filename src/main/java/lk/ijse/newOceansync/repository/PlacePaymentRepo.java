@@ -27,22 +27,22 @@ public class PlacePaymentRepo {
                         }
 
                     }
-//                    if (pp.getSelectedCources() != null) {
-//                        boolean isSelectedCourceSave = SelectedCourceRepo.saveSelectedCource(pp.getSelectedCources());
-//                        System.out.println("Selected Cource save");
-//                        if (isSelectedCourceSave) {
-//                            connection.commit();
-//                            return true;
-//                        }
-//                    }
-//                    if (pp.getSelectedActivities() != null) {
-//                        boolean isSelectedActivity = SelectedActivityRepo.saveSelectedActivity(pp.getSelectedActivities());
-//                        System.out.println("Selected Activity save ");
-//                        if (isSelectedActivity) {
-//                            connection.commit();
-//                            return true;
-//                        }
-//                    }
+                    if (pp.getSelectedCources() != null) {
+                        boolean isSelectedCourceSave = SelectedCourceRepo.saveSelectedCource(pp.getSelectedCources());
+                        System.out.println("Selected Cource save");
+                        if (isSelectedCourceSave) {
+                            connection.commit();
+                            return true;
+                        }
+                    }
+                    if (pp.getSelectedActivities() != null) {
+                        boolean isSelectedActivity = SelectedActivityRepo.saveSelectedActivity(pp.getSelectedActivities());
+                        System.out.println("Selected Activity save ");
+                        if (isSelectedActivity) {
+                            connection.commit();
+                            return true;
+                        }
+                    }
 
 
                     connection.rollback();

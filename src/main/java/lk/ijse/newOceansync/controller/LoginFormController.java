@@ -7,11 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lk.ijse.newOceansync.model.User;
 import lk.ijse.newOceansync.repository.UserRepo;
+import lk.ijse.newOceansync.util.Regex;
 
 import java.io.IOException;
 
@@ -96,4 +98,11 @@ public class LoginFormController {
     }
 
 
+    public void txtUserIdOnReleasedAction(KeyEvent keyEvent) {
+    //    if (!Regex.setTextColor(T))
+    }
+
+    public void txtPasswordOnReleasedAction(KeyEvent keyEvent) {
+        //
+    }
 }

@@ -1,18 +1,19 @@
 package lk.ijse.newOceansync.controller;
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.util.Duration;
 import lk.ijse.newOceansync.repository.UserRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -34,9 +35,7 @@ public class RegistrationFormController {
     }
 
     private void clearFields() {
-       txtName.clear();
-       txtPw.clear();
-       txtUserId.clear();
+     loadLoginPage();
     }
 
     @FXML
@@ -92,6 +91,8 @@ public class RegistrationFormController {
         }
     }
 
+
+
     @FXML
     void txtPasswordOnAction(ActionEvent event) {
     btnRegisterOnAction(event);
@@ -107,4 +108,18 @@ public class RegistrationFormController {
         txtPw.requestFocus();
     }
 
+    public void txtUserIdOnReleasedAction(KeyEvent keyEvent) {
+        if (!Regex.setTextColor(TextField.USERID, txtUserId)) {
+        }
+    }
+    public void txtUserNameOnReleasedAction(KeyEvent keyEvent) {
+            if (!Regex.setTextColor(TextField.USERNAME, txtName)) {
+        }
+    }
+
+    public void txtPasswordOnReleasedAction(KeyEvent keyEvent) {
+            if (!Regex.setTextColor(TextField.PASSWORD, txtPw)) {
+        }
+    }
 }
+

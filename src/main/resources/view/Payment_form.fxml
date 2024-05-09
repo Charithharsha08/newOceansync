@@ -167,7 +167,7 @@
       <Label fx:id="lblDate" layoutX="198.0" layoutY="161.0" prefHeight="16.0" prefWidth="117.0" />
       <Label layoutX="791.0" layoutY="200.0" text="Payment Id :-" />
       <Label fx:id="lblPaymentId" layoutX="875.0" layoutY="200.0" prefHeight="17.0" prefWidth="27.0" />
-      <JFXComboBox fx:id="cmbPaymentType" layoutX="578.0" layoutY="707.0" onAction="#cmbPaymentTypeOnAction" prefHeight="25.0" prefWidth="94.0" promptText="payment type" />
+      <JFXComboBox fx:id="cmbPaymentType" layoutX="516.0" layoutY="707.0" onAction="#cmbPaymentTypeOnAction" prefHeight="25.0" prefWidth="94.0" promptText="payment type" />
       <Label fx:id="lblNetTotal" layoutX="197.0" layoutY="714.0" textFill="#b51313">
          <font>
             <Font name="System Bold" size="22.0" />
@@ -183,6 +183,15 @@
             <ImageView fitHeight="17.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asserts/image/icon/icons8-register-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="626.0" layoutY="706.0" onAction="#btnPrintOnAction" styleClass="pane_11" stylesheets="@../css/design.css" text="Print">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-print-50.png" />
                </image>
             </ImageView>
          </graphic>
