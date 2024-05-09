@@ -91,6 +91,7 @@ public void initialize(){
             if (customerSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
                 clearFields();
+                loadNextCustomerId();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

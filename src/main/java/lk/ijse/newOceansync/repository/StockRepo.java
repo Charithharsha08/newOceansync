@@ -1,6 +1,7 @@
 package lk.ijse.newOceansync.repository;
 
 import lk.ijse.newOceansync.db.DbConnection;
+import lk.ijse.newOceansync.model.SelectedStock;
 import lk.ijse.newOceansync.model.Stock;
 
 import java.sql.PreparedStatement;
@@ -75,6 +76,24 @@ public class StockRepo {
         }
         return stockList;
     }
+
+    public static List<String> getAllStockName() throws SQLException {
+        String sql = "SELECT name FROM stock";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+        List<String> stockList = new ArrayList<>();
+        ResultSet resultSet = pstm.executeQuery();
+
+
+        while (resultSet.next()) {
+            String name = pstm.getResultSet().getString(1);
+            stockList.add(name);
+        }
+        return stockList;
+    }
+
+
 
     public static Stock getStockByStockName(String stockName) throws SQLException {
         String sql = "SELECT * FROM stock WHERE name=?";
@@ -159,6 +178,25 @@ public class StockRepo {
         pstm.setObject(1, text);
         return pstm.executeUpdate() > 0;
     }
+    public static boolean updateStockQtyOnHand(List<SelectedStock> selectedStocks){
+        System.out.println("update stock qty on hand "+selectedStocks);
+        for (SelectedStock selectedStocked : selectedStocks) {
+        String sql = "UPDATE stock SET qty = qty - ? WHERE itemId = ?";
+        try {
+            PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                    .prepareStatement(sql);
+            pstm.setObject(1, selectedStocked.getQty());
+            pstm.setObject(2, selectedStocked.getItemId());
+
+
+            return pstm.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    } return false;
+        }
 }
 //    public static boolean updateStockQtyOnHand(SelectedStock selectedStocks){
 //        System.out.println(selectedStocks);

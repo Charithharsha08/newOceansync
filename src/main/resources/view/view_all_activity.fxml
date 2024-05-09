@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="454.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ViewAllActivityController">
+   <children>
+      <TableView fx:id="tblActivity" layoutX="50.0" layoutY="41.0" prefHeight="382.0" prefWidth="807.0">
+        <columns>
+          <TableColumn fx:id="colActivityId" prefWidth="75.0" text="Activity Id" />
+          <TableColumn fx:id="colName" prefWidth="172.0" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="164.0" text="Type" />
+            <TableColumn fx:id="colLocation" prefWidth="190.0" text="Location" />
+            <TableColumn fx:id="colCost" prefWidth="205.0" text="Cost" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -4,12 +4,9 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -52,13 +49,31 @@ public class DashboardFormController {
 
     @FXML
     void btnActivityOnAction(ActionEvent event) {
+        handleSelection(btnActivity);
+        AnchorPane activityPane = null;
+        try {
+            activityPane = FXMLLoader.load(this.getClass().getResource("/view/activity_form.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(activityPane);
 
     }
 
     @FXML
     void btnCourceOnAction(ActionEvent event) {
-
+        handleSelection(btnCource);
+        AnchorPane courcePane = null;
+        try {
+            courcePane = FXMLLoader.load(this.getClass().getResource("/view/cource_form.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(courcePane);
     }
+
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
@@ -104,15 +119,9 @@ public class DashboardFormController {
     @FXML
     void btnPaymentOnAction(ActionEvent event) throws IOException {
         handleSelection(btnPayment);
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
-
-        Scene scene = new Scene(rootNode);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-
-        stage.setTitle("Payment Form");
-
-        stage.show();
+        AnchorPane stockPane = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(stockPane);
     }
 
     @FXML

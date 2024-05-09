@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="678.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.CourceFormController">
+   <children>
+      <Label layoutX="295.0" layoutY="43.0" prefHeight="98.0" prefWidth="574.0" text="COURCE MANAGE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="65.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="72.0" layoutX="205.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/icon/book.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="centerNode" layoutX="83.0" layoutY="140.0" prefHeight="454.0" prefWidth="908.0" />
+      <JFXButton buttonType="RAISED" layoutX="400.0" layoutY="612.0" onAction="#btnAddCourceOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Cource">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-add-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="542.0" layoutY="613.0" onAction="#btnCourceUpdateOnAction" prefHeight="42.0" prefWidth="138.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update Cource">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="700.0" layoutY="612.0" onAction="#btnDeleteCourceOnAction" prefHeight="42.0" prefWidth="132.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Cource">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="855.0" layoutY="612.0" onAction="#btnAllCourceOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Cources">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-view-all-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>
