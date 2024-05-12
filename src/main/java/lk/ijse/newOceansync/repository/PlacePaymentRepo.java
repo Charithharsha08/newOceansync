@@ -15,6 +15,7 @@ public class PlacePaymentRepo {
             if (isPaymentSaved) {
                 boolean isPaymentDetailSave = PaymentDetailRepo.savePaymentDetail(pp.getPaymentDetails());
                 if (isPaymentDetailSave) {
+
                     if (pp.getSelectedStocks() != null) {
                         boolean isStockSelected = SelectedStockRepo.save(pp.getSelectedStocks());
                         System.out.println("Selected Stock save");
@@ -27,15 +28,9 @@ public class PlacePaymentRepo {
                         }
 
                     }
-                    if (pp.getSelectedCources() != null) {
-                        boolean isSelectedCourceSave = SelectedCourceRepo.saveSelectedCource(pp.getSelectedCources());
-                        System.out.println("Selected Cource save");
-                        if (isSelectedCourceSave) {
-                            connection.commit();
-                            return true;
-                        }
-                    }
-                    if (pp.getSelectedActivities() != null) {
+
+                    if (pp.getSelectedActivities().get(0) != null) {
+                        System.out.println("activity");
                         boolean isSelectedActivity = SelectedActivityRepo.saveSelectedActivity(pp.getSelectedActivities());
                         System.out.println("Selected Activity save ");
                         if (isSelectedActivity) {
@@ -43,6 +38,16 @@ public class PlacePaymentRepo {
                             return true;
                         }
                     }
+
+                    if (pp.getSelectedCources().get(0) != null ) {
+                        boolean isSelectedCourceSave = SelectedCourceRepo.saveSelectedCource(pp.getSelectedCources());
+                        System.out.println("Selected Cource save");
+                        if (isSelectedCourceSave) {
+                            connection.commit();
+                            return true;
+                        }
+                    }
+
 
 
                     connection.rollback();

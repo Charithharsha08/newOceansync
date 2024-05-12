@@ -20,6 +20,7 @@ public class DashboardFormController {
     public JFXButton btnCource;
     public JFXButton btnPayment;
     public JFXButton btnDiscount;
+    public AnchorPane sideNode;
     @FXML
     private AnchorPane centerNode;
 
@@ -112,8 +113,10 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnMenuBarOnAction(MouseEvent event) {
-
+    void btnMenuBarOnAction(ActionEvent event) throws IOException {
+        AnchorPane profileForm = FXMLLoader.load(this.getClass().getResource("/view/profile_form.fxml"));
+        this.sideNode.getChildren().clear();
+        this.sideNode.getChildren().add(profileForm);
     }
 
     @FXML

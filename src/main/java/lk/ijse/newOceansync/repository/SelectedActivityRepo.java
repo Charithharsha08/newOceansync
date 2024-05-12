@@ -13,7 +13,7 @@ public class SelectedActivityRepo {
         for (SelectedActivity selectedActivity : selectedActivities) {
             System.out.println(selectedActivity.toString());
         }
-        String sql = "INSERT INTO selectedActivity VALUES(?,?,?)";
+        String sql = "INSERT INTO selectedactivity VALUES(?,?,?)";
         try {
             PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(sql);
             for (SelectedActivity selectedActivitie: selectedActivities) {

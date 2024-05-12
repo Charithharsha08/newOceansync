@@ -494,12 +494,13 @@ public class PaymentFormController {
 
             char[] charArray = tm.getId().toCharArray();
             if (charArray[0] == 'A') {
+                System.out.println("A");
                 SelectedActivity sAct = new SelectedActivity(
                         tm.getId(),
                         customerId,
                         Date.valueOf(lblDate.getText()));
                 selectedActivities.add(sAct);
-                // System.out.println("A");
+                System.out.println(sAct.toString());
             } else if (charArray[0] == 'C') {
                 SelectedCource sCource = new SelectedCource(
                         customerId,
