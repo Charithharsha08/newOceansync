@@ -10,7 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.newOceansync.model.Employee;
-import lk.ijse.newOceansync.model.EmployeeTm;
+import lk.ijse.newOceansync.model.tm.EmployeeTm;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
 
 import java.io.IOException;

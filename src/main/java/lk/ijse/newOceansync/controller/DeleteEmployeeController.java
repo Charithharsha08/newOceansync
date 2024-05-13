@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import lk.ijse.newOceansync.model.Employee;
-import lk.ijse.newOceansync.model.EmployeeTm;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
 
 import java.sql.SQLException;
