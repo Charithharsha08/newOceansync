@@ -126,4 +126,24 @@ public class ActivityRepo {
         }
         return null;
     }
+    public static List<Activity> getAll() throws SQLException {
+
+        String sql = "SELECT * FROM activity";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        List<Activity> activities = new ArrayList<>();
+        while (resultSet.next()) {
+            String activityId = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String type = resultSet.getString(3);
+            String location = resultSet.getString(4);
+            double cost = resultSet.getDouble(5);
+            Activity activity = new Activity(activityId, name, type, location, cost);
+            activities.add(activity);
+        }
+
+    return activities;
+    }
 }

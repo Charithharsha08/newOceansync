@@ -32,10 +32,19 @@ public class ProfileFormController {
 
     @FXML
     void btnCancelOnAction(ActionEvent event) throws IOException {
-        AnchorPane profileForm = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
-        this.rootNode.getChildren().clear();
-        this.rootNode.getChildren().add(profileForm);
+        AnchorPane rootNode = null;
+        try {
+            rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Dashboard Form");
     }
 
     @FXML

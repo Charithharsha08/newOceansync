@@ -10,7 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.newOceansync.model.Employee;
-import lk.ijse.newOceansync.model.tm.EmployeeTm;
+import lk.ijse.newOceansync.model.EmployeeTm;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
 
 import java.io.IOException;
@@ -47,65 +47,44 @@ public class EmployeeFormController {
     @FXML
     private AnchorPane sidepane;
 
-    private List<Employee> employeeIdList = new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
-//    public void initialize() {
-//        this.employeeIdList = getAllEmployeeId();getUserId();
-//        setCellValue();
+    public void initialize() {
+//        this.employeeList =getAllEmployee();
+//        setCellValueFactory();
 //        loadEmployeeTable();
-//    }
-//
-//    private List<Employee> getAllEmployeeId() {
-//        List<Employee> employeeList = null;
-//        try {
-//            employeeList = EmployeeRepo.getAll();
-//        }catch (SQLException e){
-//            throw new RuntimeException(e);
-//        }
-//        return employeeList;
-//    }
-//
-//
-//    private void setCellValue() {
-//        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
-//        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        colActivity.setCellValueFactory(new PropertyValueFactory<>("activity"));
-//        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-//        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-//        colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
-//    }
-//
-//    private void getUserId() {
-//
-//        ObservableList<String> userIds = FXCollections.observableArrayList();
-//      //  try {
-//          //  List<String> userIdList = UserRepo.getUserIds();
-//          //  for (String userId : userIdList) {
-////userIds.add(userId);
-//         //   }
-////cmbUserId.setItems(userIds);
-//       // } catch (SQLException e) {
-////throw new RuntimeException(e);
-//        //}
-//    }
-//    private void loadEmployeeTable() {
-//        ObservableList<EmployeeTm> employees = FXCollections.observableArrayList();
-//        for (Employee employee : employeeIdList) {
-//            EmployeeTm employeeTm = new EmployeeTm(
-//                    employee.getId(),
-//                    employee.getEmployeeId(),
-//                    employee.getName(),
-//                    employee.getActivity(),
-//                    employee.getSalary(),
-//                    employee.getDate(),
-//                    employee.getUserId()
-//            );
-//            employees.add(employeeTm);
-//        }
-//        tblEmployee.setItems(employees);
-//        EmployeeTm selectedEmployee = tblEmployee.getSelectionModel().getSelectedItem();
-//    }
+    }
+
+    private void loadEmployeeTable() {
+        ObservableList<EmployeeTm> employeeTms = FXCollections.observableArrayList();
+        for (Employee employee : employeeList) {
+            employeeTms.add(new EmployeeTm(employee.getId(),employee.getEmployeeId(),employee.getName(),employee.getActivity(),employee.getSalary(),employee.getDate(),employee.getUserId()));
+        }
+        tblEmployee.setItems(employeeTms);
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colActivity.setCellValueFactory(new PropertyValueFactory<>("activity"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+
+    }
+
+    private List<Employee> getAllEmployee() {
+        List<Employee> employeeList = null;
+        try {
+            employeeList = EmployeeRepo.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return employeeList;
+    }
+
+
     @FXML
     void btnAddEmployeeInAction(ActionEvent event)  {
         AnchorPane addEmployee = null;

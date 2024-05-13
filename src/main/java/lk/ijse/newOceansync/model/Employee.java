@@ -1,15 +1,14 @@
 package lk.ijse.newOceansync.model;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 
 public class Employee {
+
     private String id;
     private String employeeId;
     private String name;

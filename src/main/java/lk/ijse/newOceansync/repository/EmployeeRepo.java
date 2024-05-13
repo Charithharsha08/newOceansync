@@ -2,6 +2,7 @@ package lk.ijse.newOceansync.repository;
 
 import lk.ijse.newOceansync.db.DbConnection;
 import lk.ijse.newOceansync.model.Employee;
+import lk.ijse.newOceansync.model.EmployeeTm;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -48,6 +49,7 @@ public class EmployeeRepo {
             String userId = resultSet.getString(8);
 
             Employee employee = new Employee(id, employeeId, name, activity, month, salary, date, userId);
+            System.out.println(employee);
             employeeList.add(employee);
         }
         return employeeList;

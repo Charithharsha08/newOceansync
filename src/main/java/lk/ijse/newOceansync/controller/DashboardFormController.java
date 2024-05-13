@@ -1,12 +1,14 @@
 package lk.ijse.newOceansync.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -115,6 +117,19 @@ public class DashboardFormController {
     @FXML
     void btnMenuBarOnAction(ActionEvent event) throws IOException {
         AnchorPane profileForm = FXMLLoader.load(this.getClass().getResource("/view/profile_form.fxml"));
+
+
+        // Set the initial position of the profile form to be outside the sideNode
+        profileForm.setTranslateX(-sideNode.getWidth());
+        sideNode.getChildren().add(profileForm);
+
+        // Create a TranslateTransition to animate the profile form
+        TranslateTransition slideIn = new TranslateTransition(Duration.millis(300), profileForm);
+        slideIn.setFromX(-sideNode.getWidth());
+        slideIn.setToX(0);
+
+        // Play the animation
+        slideIn.play();
         this.sideNode.getChildren().clear();
         this.sideNode.getChildren().add(profileForm);
     }

@@ -7,11 +7,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import lk.ijse.newOceansync.model.Employee;
+import lk.ijse.newOceansync.model.EmployeeTm;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class UpdateEmployeeController {
 

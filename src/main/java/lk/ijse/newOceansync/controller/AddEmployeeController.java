@@ -12,7 +12,6 @@ import lk.ijse.newOceansync.repository.EmployeeRepo;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class AddEmployeeController {
 
