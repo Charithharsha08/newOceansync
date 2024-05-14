@@ -72,5 +72,19 @@ public class CourceRepo {
         }
         return new Cource(courceId, name, duration, cost);
     }
+    public static int getCourceCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS cource_count FROM cource";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int courcesCount = 0;
+        if (resultSet.next()) {
+            courcesCount = resultSet.getInt("cource_count");
+        }
+        return courcesCount;
+    }
     }
 

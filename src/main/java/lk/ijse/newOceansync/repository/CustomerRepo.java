@@ -3,6 +3,7 @@ package lk.ijse.newOceansync.repository;
 import lk.ijse.newOceansync.db.DbConnection;
 import lk.ijse.newOceansync.model.Customer;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,4 +113,20 @@ public class CustomerRepo {
         }
         return customer;
     }
+    public static int getCustomerCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS customer_count FROM customer";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int customerCount = 0;
+        if (resultSet.next()) {
+            customerCount = resultSet.getInt("customer_count");
+        }
+        return customerCount;
+    }
+
+
 }

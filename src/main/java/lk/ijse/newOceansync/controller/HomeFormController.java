@@ -3,7 +3,11 @@ package lk.ijse.newOceansync.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.newOceansync.repository.ActivityRepo;
+import lk.ijse.newOceansync.repository.CourceRepo;
+import lk.ijse.newOceansync.repository.CustomerRepo;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import static lk.ijse.newOceansync.controller.LoginFormController.credential;
@@ -26,7 +30,41 @@ public class HomeFormController {
     @FXML
     private AnchorPane sidePane;
     public void initialize() {
+
         setDayStatus();
+        loadCoustomerCount();
+        loadCourceCount();
+        loadActivityCount();
+    }
+
+    private void loadActivityCount() {
+        int activityCount;
+        try {
+            activityCount = ActivityRepo.getActivityCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        lblActivity.setText(String.valueOf(activityCount));
+    }
+
+    private void loadCourceCount() {
+        int courceCount;
+        try {
+            courceCount = CourceRepo.getCourceCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        lblCourceCount.setText(String.valueOf(courceCount));
+    }
+
+    private void loadCoustomerCount() {
+        int customerCount;
+        try {
+            customerCount = CustomerRepo.getCustomerCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        lblCustomerCount.setText(String.valueOf(customerCount));
     }
 
     private void setDayStatus() {

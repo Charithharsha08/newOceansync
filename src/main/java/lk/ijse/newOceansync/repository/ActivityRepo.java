@@ -3,6 +3,7 @@ package lk.ijse.newOceansync.repository;
 import lk.ijse.newOceansync.db.DbConnection;
 import lk.ijse.newOceansync.model.Activity;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -145,5 +146,19 @@ public class ActivityRepo {
         }
 
     return activities;
+    }
+
+    public static int getActivityCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS activity_count FROM activity";
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int activityCount = 0;
+        if (resultSet.next()) {
+            activityCount = resultSet.getInt("activity_count");
+        }
+        return activityCount;
     }
 }
