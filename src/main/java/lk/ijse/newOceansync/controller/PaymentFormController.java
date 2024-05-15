@@ -380,11 +380,19 @@ public class PaymentFormController {
         String customerName = lblCustomerName.getText();
         String description = cmbStock.getValue();
         double unitPrice = Double.parseDouble(lblStockAmount.getText());
-        int qty;
-        if (txtQty.getText().equals("")) {
-            qty = 1;
-        } else {
+        int qty ;
+        try {
             qty = Integer.parseInt(txtQty.getText());
+            int availableStockQty = StockRepo.getAvailableStockQty(stockId);
+            if (qty > availableStockQty) {
+                new Alert(Alert.AlertType.ERROR, "Insufficient Stock Quantity ").show();
+                return;
+            }else if (qty < 0) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Quantity").show();
+                return;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         double discount;
         if (cmbBougthtStockDiscount.getValue() == null) {
@@ -693,7 +701,7 @@ public class PaymentFormController {
             Map<String , Object> data = new HashMap<>();
            // System.out.println(data);
             data.put("paymentId", paymentId);
-        System.out.println(totalAmount);
+      //  System.out.println(totalAmount);
 
             data.put("totalAmount", totalAmount);
             data.put("balance", balance);

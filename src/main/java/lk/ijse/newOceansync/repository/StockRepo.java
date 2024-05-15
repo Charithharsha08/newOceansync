@@ -197,6 +197,20 @@ public class StockRepo {
 
     } return false;
         }
+
+    public static int getAvailableStockQty(String stockId) throws SQLException {
+        String sql = "SELECT qty FROM stock WHERE itemId=?";
+        PreparedStatement pstm = null;
+
+            pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+            pstm.setObject(1, stockId);
+        ResultSet rst = pstm.executeQuery();
+        if (rst.next()) {
+            return rst.getInt(1);
+        } else {
+            return 0;
+        }
+    }
 }
 //    public static boolean updateStockQtyOnHand(SelectedStock selectedStocks){
 //        System.out.println(selectedStocks);

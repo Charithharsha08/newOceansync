@@ -1,6 +1,7 @@
 package lk.ijse.newOceansync.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,6 +47,8 @@ public class DashboardFormController {
         }
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(homePane);
+        animatePane(homePane); // Call the animation method
+
     }
 
 
@@ -61,6 +64,8 @@ public class DashboardFormController {
         }
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(activityPane);
+        animatePane(activityPane); // Call the animation method
+
 
     }
 
@@ -75,6 +80,8 @@ public class DashboardFormController {
         }
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(courcePane);
+        animatePane(courcePane); // Call the animation method
+
     }
 
 
@@ -89,6 +96,8 @@ public class DashboardFormController {
         }
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(customerPane);
+        animatePane(customerPane); // Call the animation method
+
     }
 
     @FXML
@@ -97,6 +106,8 @@ public class DashboardFormController {
         AnchorPane discountPane  = FXMLLoader.load(this.getClass().getResource("/view/discount_form.fxml"));
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(discountPane);
+        animatePane(discountPane); // Call the animation method
+
     }
 
     @FXML
@@ -110,6 +121,8 @@ public class DashboardFormController {
         }
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(homePane);
+        animatePane(homePane); // Call the animation method
+
     }
 
     @FXML
@@ -140,9 +153,11 @@ public class DashboardFormController {
     @FXML
     void btnPaymentOnAction(ActionEvent event) throws IOException {
         handleSelection(btnPayment);
-        AnchorPane stockPane = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
+        AnchorPane paymentPane = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
         this.centerNode.getChildren().clear();
-        this.centerNode.getChildren().add(stockPane);
+        this.centerNode.getChildren().add(paymentPane);
+        animatePane(paymentPane); // Call the animation method
+
     }
 
     @FXML
@@ -151,7 +166,26 @@ public class DashboardFormController {
         AnchorPane stockPane = FXMLLoader.load(this.getClass().getResource("/view/stock_form.fxml"));
         this.centerNode.getChildren().clear();
         this.centerNode.getChildren().add(stockPane);
+        animatePane(stockPane); // Call the animation method
     }
+
+    private void animatePane(Pane pane) {
+        pane.setTranslateX(-pane.getWidth()); // Start the pane outside the view
+        pane.setOpacity(0); // Start with opacity 0 for a fade-in effect
+
+        // Create TranslateTransition to move the pane into view
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), pane);
+        translateTransition.setToX(0);
+
+        // Create FadeTransition to fade the pane in
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), pane);
+        fadeTransition.setToValue(1);
+
+        // Play both animations together
+        translateTransition.play();
+        fadeTransition.play();
+    }
+
 
     private void handleSelection(JFXButton button) {
         if(selectedButton != null){
