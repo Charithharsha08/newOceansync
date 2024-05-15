@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 
-public class CourceTm {
-    private String courceId;
-    private String name;
-    private String duration;
-    private double cost;
+public class DiscountTm {
+    private String discountId;
+    private String Type;
+    private double discount;
 }

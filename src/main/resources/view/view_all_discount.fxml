@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="542.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ViewAllDiscountController">
+   <children>
+      <TableView fx:id="tblDiscount" layoutX="80.0" layoutY="71.0" prefHeight="421.0" prefWidth="827.0">
+        <columns>
+          <TableColumn fx:id="colDiscountId" prefWidth="137.0" text="Discount Id" />
+          <TableColumn fx:id="colDiscountType" prefWidth="471.0" text="Discount Type" />
+            <TableColumn fx:id="colDiscount" prefWidth="218.0" text="Discount %" />
+            <TableColumn prefWidth="471.0" text="Discount Type" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

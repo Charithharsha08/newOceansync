@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.DashboardFormController">
    <children>
-      <AnchorPane fx:id="sideNode" prefHeight="768.0" prefWidth="278.0">
+      <AnchorPane fx:id="sideNode" prefHeight="778.0" prefWidth="308.0">
          <children>
             <VBox prefHeight="768.0" prefWidth="308.0">
                <children>
@@ -148,6 +148,6 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="centerNode1" layoutX="309.0" prefHeight="778.0" prefWidth="1089.0" styleClass="background" stylesheets="@../css/design.css" />
-      <AnchorPane fx:id="centerNode" layoutX="299.0" prefHeight="768.0" prefWidth="1068.0" />
+      <AnchorPane fx:id="centerNode" layoutX="309.0" prefHeight="778.0" prefWidth="1058.0" />
    </children>
 </AnchorPane>

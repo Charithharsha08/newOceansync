@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="516.0" prefWidth="397.0" style="-fx-border-radius: 20;" styleClass="side_ankerpane" stylesheets="@../css/design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.LoginFormController">
    <children>
-      <Pane fx:id="sidePane" opacity="0.76" prefHeight="518.0" prefWidth="404.0">
+      <Pane fx:id="sidePane" prefHeight="518.0" prefWidth="404.0">
          <children>
             <JFXTextField fx:id="txtuserid" focusColor="BLACK" labelFloat="true" layoutX="92.0" layoutY="191.0" onAction="#txtUserIdOnAction" onKeyReleased="#txtUserIdOnReleasedAction" prefHeight="25.0" prefWidth="247.0" promptText="User Id" unFocusColor="#0069ff" />
             <ImageView fitHeight="23.0" fitWidth="32.0" layoutX="63.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +45,7 @@
             </JFXButton>
             <Label layoutX="100.0" layoutY="379.0" prefHeight="17.0" prefWidth="138.0" text="Don't have an account?" textFill="#636e72" />
             <Hyperlink layoutX="228.0" layoutY="376.0" onAction="#linkRegistrationOnAction" text="Register now" />
-            <ImageView fitHeight="83.0" fitWidth="109.0" layoutX="110.0" layoutY="460.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="83.0" fitWidth="109.0" layoutX="110.0" layoutY="460.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../asserts/image/pdi-logo.png" />
                </image>
@@ -56,7 +56,7 @@
                </image>
             </ImageView>
             <JFXPasswordField fx:id="txtPassword" focusColor="BLACK" labelFloat="true" layoutX="92.0" layoutY="249.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnReleasedAction" prefHeight="25.0" prefWidth="247.0" promptText="Password" unFocusColor="#0069ff" />
-            <Label layoutX="228.0" layoutY="465.0" opacity="0.65" text="S25084">
+            <Label layoutX="228.0" layoutY="465.0" opacity="0.82" text="S25084">
                <font>
                   <Font name="Open Sans Extrabold" size="17.0" />
                </font>

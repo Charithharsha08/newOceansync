@@ -12,6 +12,11 @@ public class CourceFormController {
     @FXML
     private AnchorPane centerNode;
 
+    public void initialize() {
+        loadCourcetable();
+
+    }
+
     @FXML
     void btnAddCourceOnAction(ActionEvent event) {
         AnchorPane addCource = null;
@@ -28,7 +33,18 @@ public class CourceFormController {
 
     @FXML
     void btnAllCourceOnAction(ActionEvent event) {
+        loadCourcetable();
+    }
 
+    private void loadCourcetable() {
+        AnchorPane allCource = null;
+        try {
+            allCource = FXMLLoader.load(this.getClass().getResource("/view/view_all_cource.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(allCource);
     }
 
     @FXML

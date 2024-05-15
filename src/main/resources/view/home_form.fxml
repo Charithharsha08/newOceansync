@@ -20,12 +20,12 @@
       </Label>
       <AnchorPane layoutX="90.0" layoutY="140.0" prefHeight="163.0" prefWidth="179.0" style="-fx-border-color: black; -fx-border-radius: 30;">
          <children>
-            <ImageView fitHeight="43.0" fitWidth="41.0" layoutX="69.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="60.0" layoutX="68.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asserts/image/icon/user.png" />
+                  <Image url="@../asserts/image/gif/4pM09EYbLKL62r20B4.gif" />
                </image>
             </ImageView>
-            <Label fx:id="lblCustomerCount" layoutX="69.0" layoutY="107.0" prefHeight="33.0" prefWidth="33.0" text="10" textAlignment="CENTER">
+            <Label fx:id="lblCustomerCount" layoutX="82.0" layoutY="107.0" prefHeight="33.0" prefWidth="33.0" text="10" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -39,12 +39,12 @@
       </AnchorPane>
       <AnchorPane layoutX="84.0" layoutY="489.0" prefHeight="163.0" prefWidth="179.0" style="-fx-border-color: black; -fx-border-radius: 30;">
          <children>
-            <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="73.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="51.0" layoutX="63.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asserts/image/icon/book.png" />
+                  <Image url="@../asserts/image/gif/animated-book-image-0042.gif" />
                </image>
             </ImageView>
-            <Label fx:id="lblCourceCount" layoutX="73.0" layoutY="98.0" prefHeight="27.0" prefWidth="33.0" text="10" textAlignment="CENTER">
+            <Label fx:id="lblCourceCount" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="33.0" text="10" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -58,12 +58,12 @@
       </AnchorPane>
       <AnchorPane layoutX="84.0" layoutY="311.0" prefHeight="147.0" prefWidth="179.0" style="-fx-border-color: black; -fx-border-radius: 30;">
          <children>
-            <ImageView fitHeight="74.0" fitWidth="65.0" layoutX="57.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="77.0" fitWidth="73.0" layoutX="57.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asserts/image/pngegg.png" />
+                  <Image url="@../asserts/image/gif/animated-diving-image-0066.gif" />
                </image>
             </ImageView>
-            <Label fx:id="lblActivity" layoutX="67.0" layoutY="105.0" prefHeight="51.0" prefWidth="51.0" text="10" textAlignment="CENTER">
+            <Label fx:id="lblActivity" layoutX="79.0" layoutY="105.0" prefHeight="51.0" prefWidth="51.0" text="10" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>

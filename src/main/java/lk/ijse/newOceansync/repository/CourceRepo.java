@@ -86,5 +86,23 @@ public class CourceRepo {
         }
         return courcesCount;
     }
+
+    public static List<Cource> getAllDiscount() throws SQLException {
+        String sql = "SELECT * FROM cource";
+        PreparedStatement pstm =DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        List<Cource> courceList = new ArrayList<>();
+        while (resultSet.next()) {
+            String courceId = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String duration = resultSet.getString(3);
+            double cost = Double.parseDouble(resultSet.getString(4));
+            Cource cource = new Cource(courceId, name, duration, cost);
+            courceList.add(cource);
+        }
+        return courceList;
+
+
     }
+}
 

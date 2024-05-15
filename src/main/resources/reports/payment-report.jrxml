@@ -4,6 +4,8 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
 	<parameter name="paymentId" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.Double"/>
+	<parameter name="balance" class="java.lang.Double"/>
 	<queryString language="SQL">
 		<![CDATA[select
  *
@@ -438,9 +440,9 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="53" splitType="Stretch">
+		<band height="106" splitType="Stretch">
 			<staticText>
-				<reportElement x="360" y="16" width="70" height="30" forecolor="#FF0703" uuid="343df4a7-4f6c-4098-9c20-7a63964aeb74"/>
+				<reportElement x="330" y="16" width="100" height="30" forecolor="#FF0703" uuid="343df4a7-4f6c-4098-9c20-7a63964aeb74"/>
 				<box>
 					<pen lineWidth="0.05"/>
 					<topPen lineWidth="0.0" lineColor="#030000"/>
@@ -465,6 +467,34 @@
 					<font size="18" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="47" width="122" height="28" uuid="d3ac40b4-b9f3-400b-8831-3ffd241bc229"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="46" width="100" height="30" uuid="43141b62-7dec-4b3d-ae07-a7ffae7273eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="76" width="100" height="30" uuid="c8a0bf1d-b8c0-4c22-996b-091230802f9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="80" width="122" height="26" uuid="59d7c10c-ff76-4a31-ae31-c0f7abd4f6b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{balance}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

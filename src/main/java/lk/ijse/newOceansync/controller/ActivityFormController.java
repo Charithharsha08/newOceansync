@@ -12,6 +12,21 @@ public class ActivityFormController {
     @FXML
     private AnchorPane centerNode;
 
+    public void initialize() {
+        viewAllActivitytable();
+    }
+
+    private void viewAllActivitytable() {
+        AnchorPane allActivity = null;
+        try {
+            allActivity = FXMLLoader.load(this.getClass().getResource("/view/view_all_activity.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(allActivity);
+    }
+
     @FXML
     void btnActivityUpdateOnAction(ActionEvent event) {
 
@@ -31,14 +46,7 @@ public class ActivityFormController {
 
     @FXML
     void btnAllActivityOnAction(ActionEvent event) {
-        AnchorPane allActivity = null;
-        try {
-            allActivity = FXMLLoader.load(this.getClass().getResource("/view/view_all_activity.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        this.centerNode.getChildren().clear();
-        this.centerNode.getChildren().add(allActivity);
+        viewAllActivitytable();
     }
 
     @FXML

@@ -92,8 +92,11 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnDiscountOnAction(ActionEvent event) {
-
+    void btnDiscountOnAction(ActionEvent event) throws IOException {
+        handleSelection(btnDiscount);
+        AnchorPane discountPane  = FXMLLoader.load(this.getClass().getResource("/view/discount_form.fxml"));
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(discountPane);
     }
 
     @FXML

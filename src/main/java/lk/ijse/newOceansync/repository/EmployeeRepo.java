@@ -2,7 +2,6 @@ package lk.ijse.newOceansync.repository;
 
 import lk.ijse.newOceansync.db.DbConnection;
 import lk.ijse.newOceansync.model.Employee;
-import lk.ijse.newOceansync.model.EmployeeTm;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;

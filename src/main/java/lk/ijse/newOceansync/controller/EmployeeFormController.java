@@ -42,7 +42,7 @@ public class EmployeeFormController {
     private TableColumn<?, ?> colUserId;
 
     @FXML
-    private static TableView<EmployeeTm> tblEmployee;
+    private  TableView<EmployeeTm> tblEmployee;
 
     @FXML
     private AnchorPane sidepane;
@@ -50,9 +50,9 @@ public class EmployeeFormController {
     private List<Employee> employeeList = new ArrayList<>();
 
     public void initialize() {
-//        this.employeeList =getAllEmployee();
-//        setCellValueFactory();
-//        loadEmployeeTable();
+        this.employeeList =getAllEmployee();
+        setCellValueFactory();
+        loadEmployeeTable();
     }
 
     private void loadEmployeeTable() {

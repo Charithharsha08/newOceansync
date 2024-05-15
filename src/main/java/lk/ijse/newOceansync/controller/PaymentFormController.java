@@ -38,6 +38,7 @@ public class PaymentFormController {
     public JFXComboBox cmbBougthtStockDiscount;
     public JFXComboBox cmbPaymentType;
     public Label lblNetTotal;
+    public JFXTextField txtAmount;
     @FXML
     private JFXComboBox<String> cmbSelectedActivity;
 
@@ -124,6 +125,8 @@ public class PaymentFormController {
     String activityId;
     String courceId;
     String paymentId;
+    double totalAmount;
+    double balance;
 
 
     public void initialize() {
@@ -468,6 +471,8 @@ public class PaymentFormController {
         Date date = Date.valueOf(lblDate.getText());
         String customerId = lblCustomerId.getText();
         String stockId = lblStockId.getText();
+        totalAmount = Double.parseDouble(txtAmount.getText());
+        balance = totalAmount- total;
 
         var payment = new Payment(paymentId, type, total, date, customerId);
 
@@ -682,17 +687,25 @@ public class PaymentFormController {
     public void btnPrintOnAction(ActionEvent actionEvent) throws JRException, SQLException {
 
 
-            JasperDesign report = JRXmlLoader.load("src/main/resources/reports/reoport.jrxml");
+            JasperDesign report = JRXmlLoader.load("src/main/resources/reports/payment-report.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(report);
 
             Map<String , Object> data = new HashMap<>();
            // System.out.println(data);
             data.put("paymentId", paymentId);
+        System.out.println(totalAmount);
+
+            data.put("totalAmount", totalAmount);
+            data.put("balance", balance);
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
             JasperViewer.viewReport(jasperPrint, false);
 
 
+    }
+
+    public void txtAmountOnAction(ActionEvent actionEvent) {
+        cmbPaymentTypeOnAction(actionEvent);
     }
 }
 enum Type{

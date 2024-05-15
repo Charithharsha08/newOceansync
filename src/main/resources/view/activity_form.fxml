@@ -9,11 +9,6 @@
 
 <AnchorPane prefHeight="678.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ActivityFormController">
    <children>
-      <ImageView fitHeight="601.0" fitWidth="697.0" layoutX="252.0" layoutY="71.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../asserts/image/pngegg.png" />
-         </image>
-      </ImageView>
       <Label layoutX="285.0" layoutY="33.0" prefHeight="98.0" prefWidth="574.0" text="ACTIVITY MANAGE">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="65.0" />

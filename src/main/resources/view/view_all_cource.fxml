@@ -4,17 +4,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="542.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ViewAllCourceController">
    <children>
-      <TableView layoutX="58.0" layoutY="44.0" prefHeight="200.0" prefWidth="874.0">
+      <TableView fx:id="tblCource" layoutX="58.0" layoutY="44.0" prefHeight="441.0" prefWidth="874.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colCourceId" prefWidth="95.0" text="Cource Id " />
+          <TableColumn fx:id="colName" prefWidth="263.0" text="Name" />
+            <TableColumn fx:id="colDuration" prefWidth="337.0" text="Duration" />
+            <TableColumn fx:id="colCost" prefWidth="178.0" text="Cost" />
         </columns>
       </TableView>
    </children>

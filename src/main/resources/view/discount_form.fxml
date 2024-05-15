@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.DiscountFormController">
+   <children>
+      <Label layoutX="268.0" layoutY="53.0" prefHeight="98.0" prefWidth="607.0" text="DISCOUNT MANAGE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="65.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="72.0" layoutX="178.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/icon/discount.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="centerNode" layoutX="33.0" layoutY="151.0" prefHeight="542.0" prefWidth="988.0" />
+      <JFXButton buttonType="RAISED" layoutX="551.0" layoutY="701.0" onAction="#btnAddDiscountOnAction" prefHeight="42.0" prefWidth="132.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Discount">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-add-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="702.0" layoutY="701.0" onAction="#btnDeleteDiscountOnAction" prefHeight="42.0" prefWidth="140.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Discount">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="865.0" layoutY="701.0" onAction="#btnAllDiscountOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Discount">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asserts/image/icon/icons8-view-all-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>
