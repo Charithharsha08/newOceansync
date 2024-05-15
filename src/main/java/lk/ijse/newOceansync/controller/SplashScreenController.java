@@ -45,6 +45,7 @@ public class SplashScreenController {
         try {
             AnchorPane node = FXMLLoader.load(getClass().getResource("/view/login_page.fxml"));
             Scene scene = new Scene(node);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();

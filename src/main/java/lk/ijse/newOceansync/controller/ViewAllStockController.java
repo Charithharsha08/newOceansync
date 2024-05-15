@@ -39,6 +39,7 @@ public class ViewAllStockController {
         this.stockList = getAllStock();
         setCellValue();
         loadStockTable();
+        applyStyles();
 
     }
     private List<Stock> getAllStock() {
@@ -81,6 +82,15 @@ public class ViewAllStockController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
+
+    private void applyStyles() {
+        lblViewAllStock.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            }
+        });
+    }
+
 
 }
 
