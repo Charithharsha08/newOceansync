@@ -1,6 +1,8 @@
 package lk.ijse.newOceansync.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,6 +12,7 @@ import lk.ijse.newOceansync.repository.ActivityRepo;
 import lk.ijse.newOceansync.repository.CustomerRepo;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class AddActivityController {
 
@@ -27,8 +30,14 @@ public class AddActivityController {
 
     @FXML
     private JFXTextField txtType;
+
+    private static final String ACCOUNT_SID = "AC3c1af771ad6b846145a1b66d0532d3c6";
+    private static final String AUTH_TOKEN = "d379722ce22e027b8b6c474cde7f7d4f";
+    private static final String TWILIO_PHONE_NUMBER = "+12077421415";
+
     public void initialize() throws SQLException, ClassNotFoundException {
-       loadNextActivityId();
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        loadNextActivityId();
 
     }
 
@@ -94,10 +103,26 @@ public class AddActivityController {
             if(isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Activity saved!").show();
                 clearFields();
+                sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             throw new RuntimeException(e);
+        }
+    }
+
+    private void sendSmsToCustomers(String message) {
+        try {
+            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
+            for (String phoneNumber : customerPhoneNumbers) {
+                Message.creator(
+                        new com.twilio.type.PhoneNumber(phoneNumber),
+                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+                        message
+                ).create();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
         }
     }
 

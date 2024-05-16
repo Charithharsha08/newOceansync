@@ -143,4 +143,14 @@ public class CustomerRepo {
     }
 
 
+    public static List<String> getAllCustomerPhoneNumbers() throws SQLException {
+        List<String> phoneNumbers = new ArrayList<>();
+        String sql = "SELECT tel FROM customer";
+        PreparedStatement pst = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            phoneNumbers.add(rs.getString("tel"));
+        }
+        return phoneNumbers;
+    }
 }
