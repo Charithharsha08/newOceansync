@@ -75,5 +75,38 @@ public class DiscountRepo {
         }
         return discountList;
     }
+
+    public static Discount discountSearchById(String discountId) throws SQLException {
+        String sql = "SELECT * FROM discount WHERE discountId = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+        pstm.setObject(1, discountId);
+        ResultSet resultSet = pstm.executeQuery();
+        Discount discount = null;
+
+        if (resultSet.next()) {
+            String discountId1 = resultSet.getString(1);
+            String type = resultSet.getString(2);
+            double discounts = resultSet.getInt(3);
+
+            discount = new Discount(discountId1, type, discounts);
+
+        }
+        return discount;
+    }
+
+
+    public static boolean discountDelete(String discountId) {
+        String sql = "DELETE FROM discount WHERE discountId = ?";
+        try {
+            PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                    .prepareStatement(sql);
+            pstm.setObject(1, discountId);
+            return pstm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 

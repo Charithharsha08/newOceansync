@@ -31,7 +31,10 @@ public class RegistrationFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        clearFields();
+        Window window = txtUserId.getScene().getWindow();
+        Stage stage = (Stage) window;
+        stage.close();
+        loadLoginPage();
     }
 
     private void clearFields() {
@@ -44,7 +47,8 @@ public class RegistrationFormController {
         String name = txtName.getText();
         String pw = txtPw.getText();
 
-        try {
+        if(isValid()){
+            try {
 
             if (userId.isEmpty()) {
                 new Alert(Alert.AlertType.WARNING, "Please Enter User Id").show();
@@ -76,7 +80,7 @@ public class RegistrationFormController {
                 throw new RuntimeException(e);
             }
         }
-
+    }
 
 
     private void loadLoginPage() {
@@ -109,17 +113,23 @@ public class RegistrationFormController {
     }
 
     public void txtUserIdOnReleasedAction(KeyEvent keyEvent) {
-        if (!Regex.setTextColor(TextField.USERID, txtUserId)) {
-        }
+        Regex.setTextColor(TextField.USERID, txtUserId);
+
     }
     public void txtUserNameOnReleasedAction(KeyEvent keyEvent) {
-            if (!Regex.setTextColor(TextField.USERNAME, txtName)) {
-        }
+        Regex.setTextColor(TextField.USERNAME, txtName);
     }
 
     public void txtPasswordOnReleasedAction(KeyEvent keyEvent) {
-            if (!Regex.setTextColor(TextField.PASSWORD, txtPw)) {
+            Regex.setTextColor(TextField.PASSWORD, txtPw);
+
+        }
+        public boolean isValid(){
+            if (!Regex.setTextColor(TextField.USERID, txtUserId)) return false;
+            if (!Regex.setTextColor(TextField.USERNAME, txtName)) return false;
+            if (!Regex.setTextColor(TextField.PASSWORD, txtPw)) return false;
+            return true;
         }
     }
-}
+
 

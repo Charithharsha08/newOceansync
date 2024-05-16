@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="535.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.AddCustomerController">
    <children>
       <JFXTextField fx:id="txtCustomerName" labelFloat="true" layoutX="92.0" layoutY="193.0" onAction="#txtCustomerNameOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Customer Name" />
       <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="92.0" layoutY="266.0" onAction="#txtAddressOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Address" />
-      <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="92.0" layoutY="343.0" onAction="#txtTelOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Telephone Number" />
+      <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="92.0" layoutY="343.0" onAction="#txtTelOnAction" onKeyReleased="#txtTelephoneNumberReleaseOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Telephone Number" />
       <Label fx:id="lblCustomerId" layoutX="92.0" layoutY="136.0" prefHeight="32.0" prefWidth="200.0" />
       <Label layoutX="95.0" layoutY="115.0" prefHeight="17.0" prefWidth="113.0" text="Customer Id">
          <font>

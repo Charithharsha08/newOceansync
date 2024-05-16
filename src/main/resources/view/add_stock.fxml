@@ -44,8 +44,8 @@
          </font>
       </Label>
       <JFXTextField fx:id="txtname" labelFloat="true" layoutX="465.0" layoutY="282.0" onAction="#txtNameOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Name" />
-      <JFXTextField fx:id="txtPrice" labelFloat="true" layoutX="465.0" layoutY="336.0" onAction="#txtPriceOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Price" />
-      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="465.0" layoutY="392.0" onAction="#txtQtyonAction" prefHeight="25.0" prefWidth="261.0" promptText="Qty" />
+      <JFXTextField fx:id="txtPrice" labelFloat="true" layoutX="465.0" layoutY="336.0" onAction="#txtPriceOnAction" onKeyReleased="#txtPriceReleaseOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="465.0" layoutY="392.0" onAction="#txtQtyonAction" onKeyReleased="#txtQtyReleaseOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Qty" />
       <JFXButton buttonType="RAISED" layoutX="495.0" layoutY="470.0" onAction="#btnSaveOnAction" prefHeight="37.0" prefWidth="100.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Save">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">

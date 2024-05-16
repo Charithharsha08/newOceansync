@@ -19,7 +19,7 @@
             <Image url="@../asserts/image/icon/book.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="centerNode" layoutX="42.0" layoutY="128.0" prefHeight="542.0" prefWidth="988.0" />
+      <AnchorPane fx:id="centerNode" layoutX="33.0" layoutY="141.0" prefHeight="542.0" prefWidth="988.0" />
       <JFXButton buttonType="RAISED" layoutX="400.0" layoutY="691.0" onAction="#btnAddCourceOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Cource">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">

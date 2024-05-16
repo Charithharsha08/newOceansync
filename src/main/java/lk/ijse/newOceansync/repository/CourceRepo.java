@@ -104,5 +104,54 @@ public class CourceRepo {
 
 
     }
+
+    public static Cource getCourceByCourcId(String id) {
+        String sql = "SELECT * FROM cource WHERE courceId = ?";
+        try {
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+            pstm.setObject(1, id);
+            ResultSet resultSet = pstm.executeQuery();
+            if (resultSet.next()) {
+                Cource cource = new Cource(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getDouble(4)
+                );
+                return cource;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static boolean courceUpdate(Cource cource) {
+        String sql = "UPDATE cource SET name=?,duration=?,cost=? WHERE courceId=?";
+        try {
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+            pstm.setObject(1, cource.getName());
+            pstm.setObject(2, cource.getDuration());
+            pstm.setObject(3, cource.getCost());
+            pstm.setObject(4, cource.getCourceId());
+            return pstm.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static boolean courceDelete(String courceId) {
+
+        try {
+            Connection con = DbConnection.getInstance().getConnection();
+            String sql = "DELETE FROM cource WHERE courceId=?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setObject(1, courceId);
+            return stm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 

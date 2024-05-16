@@ -124,3 +124,5 @@ qty int(200),
 discount decimal(10,2),
 total decimal(10,2)
 );
+
+alter table customer modify tel varchar(20);

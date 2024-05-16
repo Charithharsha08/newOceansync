@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="678.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ActivityFormController">
+<AnchorPane prefHeight="768.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.ActivityFormController">
    <children>
       <Label layoutX="285.0" layoutY="33.0" prefHeight="98.0" prefWidth="574.0" text="ACTIVITY MANAGE">
          <font>
@@ -19,8 +19,8 @@
             <Image url="@../asserts/image/icon/ready-stock.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="centerNode" layoutX="73.0" layoutY="130.0" prefHeight="454.0" prefWidth="908.0" />
-      <JFXButton buttonType="RAISED" layoutX="390.0" layoutY="602.0" onAction="#btnAddActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Activity">
+      <AnchorPane fx:id="centerNode" layoutX="73.0" layoutY="157.0" prefHeight="454.0" prefWidth="908.0" />
+      <JFXButton buttonType="RAISED" layoutX="390.0" layoutY="682.0" onAction="#btnAddActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Add Activity">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,7 +29,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="532.0" layoutY="603.0" onAction="#btnActivityUpdateOnAction" prefHeight="42.0" prefWidth="138.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update Activity">
+      <JFXButton buttonType="RAISED" layoutX="532.0" layoutY="683.0" onAction="#btnActivityUpdateOnAction" prefHeight="42.0" prefWidth="138.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update Activity">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -38,7 +38,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="690.0" layoutY="602.0" onAction="#btnDeleteActivityOnAction" prefHeight="42.0" prefWidth="132.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Activity">
+      <JFXButton buttonType="RAISED" layoutX="690.0" layoutY="682.0" onAction="#btnDeleteActivityOnAction" prefHeight="42.0" prefWidth="132.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Delete Activity">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,7 +47,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="845.0" layoutY="602.0" onAction="#btnAllActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Activity">
+      <JFXButton buttonType="RAISED" layoutX="845.0" layoutY="682.0" onAction="#btnAllActivityOnAction" prefHeight="42.0" prefWidth="121.0" styleClass="pane_1" stylesheets="@../css/design.css" text="All Activity">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>

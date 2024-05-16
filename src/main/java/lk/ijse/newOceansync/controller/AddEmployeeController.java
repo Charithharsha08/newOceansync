@@ -3,12 +3,12 @@ package lk.ijse.newOceansync.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.newOceansync.model.Employee;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -44,14 +44,19 @@ public class AddEmployeeController {
 
     @FXML
     private JFXTextField txtsalary;
+
+    private AutoCompletionBinding<String> autoCompleteBinding;
+    private String[] possibleSuggestion = {"january","february","march","april","may","june","july","august","september","october","november","december"};
     public void initialize(){
+        TextFields.bindAutoCompletion(txtMonth, possibleSuggestion);
         lblUserId.setText(LoginFormController.credential[0]);
         lblUserName.setText(LoginFormController.credential[1]);
         loadNextId();
     }
 
     private void loadNextId() {
-        String currentId = EmployeeRepo.currerntId();
+        String currentId = null;
+        currentId = EmployeeRepo.currerntId();
         String nextId = nextId(currentId);
         lblId.setText(nextId);
     }
@@ -128,32 +133,33 @@ public class AddEmployeeController {
 
     @FXML
     void dpDateOnAction(ActionEvent event) {
-
+btnSaveOnAction(event);
     }
 
     @FXML
-    void tctActivityOnAction(ActionEvent event) {
-
+    void txtActivityOnAction(ActionEvent event) {
+txtsalary.requestFocus();
     }
 
     @FXML
     void txtEmployeeIdOnAction(ActionEvent event) {
-
+        txtName.requestFocus();
     }
 
     @FXML
     void txtMonthOnAction(ActionEvent event) {
 
+dpDate.requestFocus();
     }
 
     @FXML
     void txtNameOnAction(ActionEvent event) {
-
+txtActivity.requestFocus();
     }
 
     @FXML
     void txtSalaryOnAction(ActionEvent event) {
-
+txtMonth.requestFocus();
     }
 
 }

@@ -11,6 +11,7 @@
 
 <AnchorPane prefHeight="542.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.AddDiscountController">
    <children>
+      <AnchorPane layoutX="68.0" layoutY="75.0" prefHeight="423.0" prefWidth="873.0" styleClass="side_ankerpane" stylesheets="@../css/design.css" />
       <JFXTextField fx:id="txtDiscount" labelFloat="true" layoutX="711.0" layoutY="332.0" onAction="#txtDiscountOnAction" prefHeight="25.0" prefWidth="145.0" promptText="Discount" />
       <Label layoutX="712.0" layoutY="180.0" prefHeight="17.0" prefWidth="85.0" text="discount Id :" />
       <Label fx:id="lblDiscountId" layoutX="797.0" layoutY="180.0" />
@@ -33,17 +34,17 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label layoutX="152.0" layoutY="40.0" prefHeight="32.0" prefWidth="148.0" text="ADD DISCOUNT" textAlignment="CENTER">
+      <Label layoutX="742.0" layoutY="114.0" prefHeight="32.0" prefWidth="148.0" text="ADD DISCOUNT" textAlignment="CENTER">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="101.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="691.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icon/discount.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="505.0" fitWidth="487.0" layoutX="146.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="505.0" fitWidth="487.0" layoutX="145.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/add%20(1).png" />
          </image>

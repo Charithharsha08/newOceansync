@@ -8,15 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="454.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.UpdateActivityController">
+<AnchorPane prefHeight="454.0" prefWidth="908.0" style="-fx-border-radius: 20;" styleClass="side_ankerpane" stylesheets="@../css/design.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.UpdateActivityController">
    <children>
-      <Label layoutX="111.0" layoutY="32.0" prefHeight="32.0" prefWidth="174.0" text="UPDATE ACTIVITY" textAlignment="CENTER">
+      <Label layoutX="155.0" layoutY="50.0" prefHeight="32.0" prefWidth="174.0" text="UPDATE ACTIVITY" textAlignment="CENTER">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="60.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="104.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icon/icons8-update-64.png" />
          </image>
@@ -51,5 +50,10 @@
       </JFXButton>
       <Label layoutX="520.0" layoutY="152.0" prefHeight="17.0" prefWidth="73.0" text="Activity Id" />
       <Label fx:id="lblActivityId" layoutX="599.0" layoutY="152.0" prefHeight="17.0" prefWidth="246.0" />
+      <ImageView fitHeight="282.0" fitWidth="351.0" layoutX="147.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/update.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

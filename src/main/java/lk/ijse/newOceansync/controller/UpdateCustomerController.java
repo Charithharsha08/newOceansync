@@ -49,7 +49,7 @@ public class UpdateCustomerController {
         }
         Customer customer = new Customer(customerId, customerName, address, tel);
         try {
-            boolean customerSaved = CustomerRepo.customerSave(customer);
+            boolean customerSaved = CustomerRepo.customerUpdate(customer);
             if (customerSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
                 clearFields();

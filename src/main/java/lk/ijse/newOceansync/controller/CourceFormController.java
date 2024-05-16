@@ -49,12 +49,26 @@ public class CourceFormController {
 
     @FXML
     void btnCourceUpdateOnAction(ActionEvent event) {
-
+        AnchorPane updateCource = null;
+        try {
+            updateCource = FXMLLoader.load(this.getClass().getResource("/view/update_cource.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(updateCource);
     }
 
     @FXML
     void btnDeleteCourceOnAction(ActionEvent event) {
-
+        AnchorPane deleteCource  = null;
+        try {
+            deleteCource = FXMLLoader.load(this.getClass().getResource("/view/delete_cource.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(deleteCource);
     }
 
 }

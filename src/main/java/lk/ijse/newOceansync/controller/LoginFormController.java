@@ -41,11 +41,11 @@ public class LoginFormController {
 
         try {
             User user = UserRepo.checkCredential(userId, password);
+            credential[1] = user.getUserName();
             if (user.getUserId().equals(userId) && user .getPassword().equals(password)) {
                 navigateToTheDashboard();
-                credential[0] = user.getUserId();
-                credential[1] = user.getUserName();
-                credential[2] = user.getPassword();
+                credential[0] = userId;
+                credential[2] = password;
 
             }if (!user.getUserId().equals(userId)){
                 Alert alert = new Alert(Alert.AlertType.ERROR);

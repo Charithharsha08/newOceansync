@@ -35,7 +35,19 @@ public class HomeFormController {
         loadCoustomerCount();
         loadCourceCount();
         loadActivityCount();
+        applyStyles();
+
     }
+
+    private void applyStyles() {
+        lblActivity.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            }
+        });
+
+
+}
 
     private void loadActivityCount() {
         int activityCount;
@@ -80,8 +92,11 @@ public class HomeFormController {
             status = "Evening ";
         }
 
-        lblDayStatus.setText(status+credential[1]);
+        lblDayStatus.setText(status+(credential[1]));
+        System.out.println(credential[0]);
     }
+
+
 
 
 }

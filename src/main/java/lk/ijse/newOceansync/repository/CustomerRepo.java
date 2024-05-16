@@ -128,5 +128,19 @@ public class CustomerRepo {
         return customerCount;
     }
 
+    public static boolean customerUpdate(Customer customer) throws SQLException {
+        String sql = "UPDATE customer SET name=?, address=?, tel=? WHERE customerId=?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+        pstm.setObject(1, customer.getName());
+        pstm.setObject(2, customer.getAddress());
+        pstm.setObject(3, customer.getTel());
+        pstm.setObject(4, customer.getCustomerId());
+
+
+        return pstm.executeUpdate() > 0;
+
+    }
+
 
 }

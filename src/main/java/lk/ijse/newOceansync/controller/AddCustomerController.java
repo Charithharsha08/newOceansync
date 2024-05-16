@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Customer;
 import lk.ijse.newOceansync.repository.CustomerRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 
@@ -72,31 +75,37 @@ public void initialize(){
         String customerName = txtCustomerName.getText();
         String address = txtAddress.getText();
         String tel = txtTel.getText();
-        if (customerId.isEmpty()){
-            lblCustomerId.setStyle("-fx-text-fill: red");
-            return;
-        }if (customerName.isEmpty()) {
-            txtCustomerName.setStyle("-fx-text-fill: red");
-            return;
-        }if (address.isEmpty()) {
-            txtAddress.setStyle("-fx-text-fill: red");
-            return;
-        }if (tel.isEmpty()) {
-            txtTel.setStyle("-fx-text-fill: red");
-            return;
-        }
-        Customer customer = new Customer(customerId,customerName,address,tel);
-        try {
-            boolean customerSaved = CustomerRepo.customerSave(customer);
-            if (customerSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
-                clearFields();
-                loadNextCustomerId();
+
+        if (isValid()) {
+            if (customerId.isEmpty()){
+                new Alert(Alert.AlertType.ERROR, "Please Enter Customer Id").show();
+                return;
+            }if (customerName.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Please Enter Customer Name").show();
+                return;
+            }if (address.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Please Enter Address").show();
+
+                return;
+            }if (tel.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Please Enter Telephone Number").show();
+                return;
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            throw new RuntimeException(e);
+            Customer customer = new Customer(customerId,customerName,address,tel);
+            try {
+                boolean customerSaved = CustomerRepo.customerSave(customer);
+                if (customerSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+                    clearFields();
+                    loadNextCustomerId();
+                    txtCustomerName.requestFocus();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                throw new RuntimeException(e);
+            }
         }
+
     }
 
 
@@ -118,4 +127,12 @@ txtAddress.requestFocus();
 
     }
 
+    public void txtTelephoneNumberReleaseOnAction(KeyEvent keyEvent) {
+    Regex.setTextColor(TextField.MOBILENUMBER, txtTel);
+    }
+
+    public boolean isValid(){
+    if (!Regex.setTextColor(TextField.MOBILENUMBER,txtTel))return false;
+        return true;
+    }
 }

@@ -29,7 +29,14 @@ public class ActivityFormController {
 
     @FXML
     void btnActivityUpdateOnAction(ActionEvent event) {
-
+        AnchorPane updateActivity = null;
+        try {
+            updateActivity = FXMLLoader.load(this.getClass().getResource("/view/update_activity.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(updateActivity);
     }
 
     @FXML
@@ -51,7 +58,14 @@ public class ActivityFormController {
 
     @FXML
     void btnDeleteActivityOnAction(ActionEvent event) {
-
+        AnchorPane deleteActivity = null;
+        try {
+            deleteActivity = FXMLLoader.load(this.getClass().getResource("/view/delete_activity.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.centerNode.getChildren().clear();
+        this.centerNode.getChildren().add(deleteActivity);
     }
 
 }

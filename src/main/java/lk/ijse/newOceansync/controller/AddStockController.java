@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Stock;
 import lk.ijse.newOceansync.repository.StockRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -74,30 +77,25 @@ public class AddStockController {
         int qty = Integer.parseInt(txtQty.getText());
         String userId = lblUserId.getText();
 
-        if (stockId.isEmpty()){
-            lblStockId.setStyle("-fx-text-fill: red");
-        }if (name.isEmpty()){
-            txtname.setStyle("-fx-text-fill: red");
-        }if (price == 0){
-            txtPrice.setStyle("-fx-text-fill: red");
-        }if (qty ==0){
-            txtQty.setStyle("-fx-text-fill: red");
-        }
-        Stock stock = new Stock(stockId, name, price, qty, userId);
-        try {
-            boolean stockSave = StockRepo.stockSave(stock);
-            if (stockSave) {
-                new Alert(Alert.AlertType.INFORMATION, "Stock Save").show();
+        if (isValid()) {
+            Stock stock = new Stock(stockId, name, price, qty, userId);
+            try {
+                boolean stockSave = StockRepo.stockSave(stock);
+                if (stockSave) {
+                    new Alert(Alert.AlertType.INFORMATION, "Stock Save").show();
+                    clearFields();
+                    loadNextStockId();
+                }
                 clearFields();
-                loadNextStockId();
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "Please add correct data").show();
+                throw new RuntimeException(e);
             }
-            clearFields();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+
+        }
         }
 
-
-    }
 
     @FXML
     void txtNameOnAction(ActionEvent event) {
@@ -118,5 +116,21 @@ public class AddStockController {
     public void brnClearOnAction(ActionEvent actionEvent) {
         clearFields();
 
+    }
+
+    public void txtPriceReleaseOnAction(KeyEvent keyEvent) {
+    Regex.setTextColor(TextField.UNIT_PRICE, txtPrice);
+
+    }
+
+    public void txtQtyReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY, txtQty);
+
+    }
+    public boolean isValid(){
+        if (
+                !Regex.setTextColor(TextField.UNIT_PRICE, txtPrice)) return false ;
+                if (!Regex.setTextColor(TextField.QTY, txtQty)) return false;
+        return true;
     }
 }
