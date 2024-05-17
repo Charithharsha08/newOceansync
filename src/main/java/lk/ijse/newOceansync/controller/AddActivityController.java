@@ -31,12 +31,12 @@ public class AddActivityController {
     @FXML
     private JFXTextField txtType;
 
-//    private static final String ACCOUNT_SID = "AC3c1af771ad6b846145a1b66d0532d3c6";
-//    private static final String AUTH_TOKEN = "d379722ce22e027b8b6c474cde7f7d4f";
-//    private static final String TWILIO_PHONE_NUMBER = "+12077421415";
+    private static final String ACCOUNT_SID = "AC3c1af771ad6b846145a1b66d0532d3c6";
+    private static final String AUTH_TOKEN = "d379722ce22e027b8b6c474cde7f7d4f";
+    private static final String TWILIO_PHONE_NUMBER = "+12077421415";
 
     public void initialize() throws SQLException, ClassNotFoundException {
-       // Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         loadNextActivityId();
 
     }
@@ -112,18 +112,18 @@ public class AddActivityController {
     }
 
     private void sendSmsToCustomers(String message) {
-//        try {
-//            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
-//            for (String phoneNumber : customerPhoneNumbers) {
-//                Message.creator(
-//                        new com.twilio.type.PhoneNumber(phoneNumber),
-//                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-//                        message
-//                ).create();
-//            }
-//        } catch (SQLException e) {
-//            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
-//        }
+        try {
+            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
+            for (String phoneNumber : customerPhoneNumbers) {
+                Message.creator(
+                        new com.twilio.type.PhoneNumber(phoneNumber),
+                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+                        message
+                ).create();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
+        }
     }
 
     @FXML
