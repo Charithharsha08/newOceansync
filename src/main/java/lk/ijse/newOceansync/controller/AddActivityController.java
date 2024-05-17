@@ -31,7 +31,9 @@ public class AddActivityController {
     @FXML
     private JFXTextField txtType;
 
-
+//    private static final String ACCOUNT_SID = "AC3c1af771ad6b846145a1b66d0532d3c6";
+//    private static final String AUTH_TOKEN = "d379722ce22e027b8b6c474cde7f7d4f";
+//    private static final String TWILIO_PHONE_NUMBER = "+12077421415";
 
     public void initialize() throws SQLException, ClassNotFoundException {
        // Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
