@@ -34,7 +34,7 @@ public class AddActivityController {
 
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+       // Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         loadNextActivityId();
 
     }
@@ -101,7 +101,7 @@ public class AddActivityController {
             if(isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION, "Activity saved!").show();
                 clearFields();
-                sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
+               // sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -110,18 +110,18 @@ public class AddActivityController {
     }
 
     private void sendSmsToCustomers(String message) {
-        try {
-            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
-            for (String phoneNumber : customerPhoneNumbers) {
-                Message.creator(
-                        new com.twilio.type.PhoneNumber(phoneNumber),
-                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-                        message
-                ).create();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
-        }
+//        try {
+//            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
+//            for (String phoneNumber : customerPhoneNumbers) {
+//                Message.creator(
+//                        new com.twilio.type.PhoneNumber(phoneNumber),
+//                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+//                        message
+//                ).create();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
+//        }
     }
 
     @FXML

@@ -88,7 +88,7 @@ public class AddCourceController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
                 clearFields();
                 loadNextCourceId();
-                sendSmsToCustomers("Dear Valued Customer, we are pleased to announce the addition of a new course, \"" + name + "\", at the Submarine Diving Center. This course has a duration of \"" + duration + "\". We encourage you to join us for this exciting opportunity and experience it firsthand.");
+            //    sendSmsToCustomers("Dear Valued Customer, we are pleased to announce the addition of a new course, \"" + name + "\", at the Submarine Diving Center. This course has a duration of \"" + duration + "\". We encourage you to join us for this exciting opportunity and experience it firsthand.");
 
             }else {
                 new Alert(Alert.AlertType.ERROR, "Not Saved").show();
@@ -100,18 +100,18 @@ public class AddCourceController {
 
     private void sendSmsToCustomers(String message) {
 
-        try {
-            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
-            for (String phoneNumber : customerPhoneNumbers) {
-                Message.creator(
-                        new com.twilio.type.PhoneNumber(phoneNumber),
-                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-                        message
-                ).create();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
-        }
+//        try {
+//            List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
+//            for (String phoneNumber : customerPhoneNumbers) {
+//                Message.creator(
+//                        new com.twilio.type.PhoneNumber(phoneNumber),
+//                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
+//                        message
+//                ).create();
+//            }
+//        } catch (SQLException e) {
+//            new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
+//        }
     }
 
     @FXML
