@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="454.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.DeleteCourceFormController">
    <children>
       <Label layoutX="130.0" layoutY="54.0" prefHeight="32.0" prefWidth="174.0" text="DELETE COURCE" textAlignment="CENTER">
@@ -16,7 +15,7 @@
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="79.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="77.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../asserts/image/icons8-delete-document-64.png" />
          </image>
@@ -69,5 +68,10 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="324.0" fitWidth="462.0" layoutX="61.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asserts/image/Downpic.cc-1384436815-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

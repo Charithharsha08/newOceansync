@@ -105,3 +105,22 @@
     -fx-background-color:#49C8C6;
 
 }
+.bordered-text {
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-padding: 5px;
+}
+#myLabel {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 5px; /* Optional: adds space around the text */
+}
+
+.my-text-class {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-padding: 5px; /* Optional: adds space around the text */
+}
+
+
