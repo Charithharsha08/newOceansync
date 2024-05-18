@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Stock;
 import lk.ijse.newOceansync.repository.StockRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 
@@ -51,10 +54,25 @@ public class UpdateStockController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        double price;
+        int qty;
+
         String stockId = lblStockId.getText();
         String name = txtname.getText();
-        double price = Double.parseDouble(txtPrice.getText());
-        int qty = Integer.parseInt(txtQty.getText());
+         try {
+             price = Double.parseDouble(txtPrice.getText());
+         }catch (NumberFormatException e){
+             new Alert(Alert.AlertType.ERROR, "Invalid price").show();
+             txtPrice.requestFocus();
+             return;
+         }
+       try {
+           qty = Integer.parseInt(txtQty.getText());
+       }catch (NumberFormatException e){
+           new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
+           txtQty.requestFocus();
+           return;
+       }
         String userId = lblUserId.getText();
 
         if (txtname.getText().isEmpty()) {
@@ -114,5 +132,18 @@ public class UpdateStockController {
             new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
             throw new RuntimeException(e);
         }
+    }
+
+    public void txtPriceKeyRelealeOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT, txtPrice);
+    }
+
+    public void txtQtyKeyReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY, txtQty);
+    }
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.AMOUNT, txtPrice)) return false;
+        if (!Regex.setTextColor(TextField.QTY, txtQty)) return false;
+        return true;
     }
 }

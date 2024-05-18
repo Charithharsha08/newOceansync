@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Activity;
 import lk.ijse.newOceansync.repository.ActivityRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 
@@ -46,11 +49,19 @@ public class UpdateActivityController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        double cost = 0;
         String id = txtSearchId.getText();
         String name = txtName.getText();
         String type = txtType.getText();
         String location = txtLocation.getText();
-        double cost = Double.parseDouble(txtCost.getText());
+        
+        try {
+            cost = Double.parseDouble(txtCost.getText());
+        }catch (NumberFormatException e){
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric value for cost").show();
+            txtCost.requestFocus();
+        }if (isValid()){
+
 
         Activity activity = new Activity(id, name, type, location, cost);
         try {
@@ -63,6 +74,7 @@ public class UpdateActivityController {
             throw new RuntimeException(e);
         }
 
+        }
 
     }
 
@@ -108,4 +120,11 @@ public class UpdateActivityController {
 
     }
 
+    public void txtCostReleasedOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT, txtCost);
+    }
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.AMOUNT, txtCost)) return false;
+        return true;
+    }
 }

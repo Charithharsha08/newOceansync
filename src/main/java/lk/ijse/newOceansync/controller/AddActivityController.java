@@ -7,9 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Activity;
 import lk.ijse.newOceansync.repository.ActivityRepo;
 import lk.ijse.newOceansync.repository.CustomerRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -78,11 +81,17 @@ public class AddActivityController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        double cost;
         String activityId = lblActivityId.getText();
         String name = txtName.getText();
         String type = txtType.getText();
         String location = txtLocation.getText();
-        double cost = Double.parseDouble(txtCost.getText());
+        try {
+            cost = Double.parseDouble(txtCost.getText());
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric value for cost").show();
+            return;
+        }
         Activity activity = new Activity(activityId,name,type,location,cost);
         if (name.isEmpty()){
             new Alert(Alert.AlertType.ERROR, "Please enter name").show();
@@ -96,19 +105,27 @@ public class AddActivityController {
         }if (txtCost.getText().isEmpty()){
             new Alert(Alert.AlertType.ERROR, "Please enter cost").show();
             return;
-        }
-        try {
-            boolean isSaved = ActivityRepo.activitySave(activity);
+}
+        if (isValid()){
+            try {
+                boolean isSaved = ActivityRepo.activitySave(activity);
 
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Activity saved!").show();
-                clearFields();
-               // sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
+                if(isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION, "Activity saved!").show();
+                    clearFields();
+                    sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "Failed to save activity: " + e.getMessage()).show();
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            throw new RuntimeException(e);
         }
+
+    }
+
+    private boolean isValid() {
+        if (!Regex.setTextColor(TextField.AMOUNT, txtCost)) return false;
+        return true;
     }
 
     private void sendSmsToCustomers(String message) {
@@ -146,6 +163,10 @@ public class AddActivityController {
     @FXML
     void txtTypeOnAction(ActionEvent event) {
     txtLocation.requestFocus();
+    }
+
+    public void txtCostOnKeyRelease(KeyEvent keyEvent) {
+    Regex.setTextColor(TextField.AMOUNT, txtCost);
     }
 
 }

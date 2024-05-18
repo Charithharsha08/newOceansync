@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="rootNode" prefHeight="535.0" prefWidth="379.0" style="-fx-border-radius: 30;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.AddEmployeeController">
    <children>
       <Label layoutX="57.0" layoutY="79.0" prefHeight="32.0" prefWidth="48.0" text="User Id" />
@@ -32,7 +31,7 @@
       </Label>
       <JFXTextField fx:id="txtName" labelFloat="true" layoutX="60.0" layoutY="237.0" onAction="#txtNameOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Name" />
       <JFXTextField fx:id="txtActivity" labelFloat="true" layoutX="60.0" layoutY="290.0" onAction="#txtActivityOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Activity" />
-      <JFXTextField fx:id="txtsalary" labelFloat="true" layoutX="60.0" layoutY="342.0" onAction="#txtSalaryOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Salary" />
+      <JFXTextField fx:id="txtsalary" labelFloat="true" layoutX="60.0" layoutY="342.0" onAction="#txtSalaryOnAction" onKeyReleased="#txtSalaryKeyReleaseOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Salary" />
       <JFXTextField fx:id="txtMonth" labelFloat="true" layoutX="60.0" layoutY="391.0" onAction="#txtMonthOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Month" />
       <Label layoutX="142.0" layoutY="30.0" prefHeight="32.0" prefWidth="148.0" text="ADD EMPLOYEE" textAlignment="CENTER">
          <font>

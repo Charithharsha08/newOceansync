@@ -7,9 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Cource;
 import lk.ijse.newOceansync.repository.CourceRepo;
 import lk.ijse.newOceansync.repository.CustomerRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -67,11 +70,19 @@ public class AddCourceController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        double cost;
         String courceId = lblCourceId.getText();
         String name = txtName.getText();
         String duration = txtDuration.getText();
-        double cost = Double.parseDouble(txtCost.getText());
+        if (!isValid()) {
 
+
+        try {
+            cost = Double.parseDouble(txtCost.getText());
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric value for cost").show();
+            return;
+        }
         if (name.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please Enter Cource Name").show();
         }if (duration.isEmpty()) {
@@ -99,6 +110,7 @@ public class AddCourceController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
     }
 
     private void sendSmsToCustomers(String message) {
@@ -133,4 +145,12 @@ public class AddCourceController {
 
     }
 
+    public void txtCostReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT, txtCost);
+    }
+
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.AMOUNT, txtCost)) return false;
+        return true;
+    }
 }

@@ -22,7 +22,7 @@
          <children>
             <ImageView fitHeight="45.0" fitWidth="60.0" layoutX="68.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asserts/image/gif/4pM09EYbLKL62r20B4.gif" />
+                  <Image url="@../asserts/image/gif/profile.gif" />
                </image>
             </ImageView>
             <Label fx:id="lblCustomerCount" layoutX="82.0" layoutY="111.0" prefHeight="33.0" prefWidth="33.0" text="10" textAlignment="CENTER">

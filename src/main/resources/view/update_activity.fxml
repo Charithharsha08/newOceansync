@@ -27,7 +27,7 @@
          </image>
       </ImageView>
       <JFXTextField fx:id="txtName" labelFloat="true" layoutX="516.0" layoutY="201.0" onAction="#txtNameOnAction" promptText="Name" />
-      <JFXTextField fx:id="txtCost" labelFloat="true" layoutX="516.0" layoutY="252.0" onAction="#txtCostOnAction" promptText="Cost" />
+      <JFXTextField fx:id="txtCost" labelFloat="true" layoutX="516.0" layoutY="252.0" onAction="#txtCostOnAction" onKeyReleased="#txtCostReleasedOnAction" promptText="Cost" />
       <JFXTextField fx:id="txtLocation" labelFloat="true" layoutX="706.0" layoutY="252.0" onAction="#txtLocationOnAction" prefHeight="25.0" prefWidth="135.0" promptText="Location" />
       <JFXTextField fx:id="txtType" labelFloat="true" layoutX="709.0" layoutY="202.0" onAction="#txtTypeOnAction" promptText="Type" />
       <JFXButton buttonType="RAISED" layoutX="637.0" layoutY="321.0" onAction="#btnUpdateOnAction" prefHeight="37.0" prefWidth="93.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Update">

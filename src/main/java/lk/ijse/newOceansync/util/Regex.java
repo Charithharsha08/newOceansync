@@ -31,12 +31,15 @@ public class Regex {
                 field = "^[0-9]{1,9}$";
                 break;
             case AMOUNT:
-                field = "^[0-9]{1,3}$";
+                field = "^[0-9]{1,9}$";
                 break;
             case MOBILENUMBER:
                 field ="^\\+(?:[0-9] ?){6,14}[0-9]$";
                 break;
-            default:
+            case SALARY:
+                field = "^[0-9]{1,9}$";
+                break;
+                default:
                 break;
 
         }

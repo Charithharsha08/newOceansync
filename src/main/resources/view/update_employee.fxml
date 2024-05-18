@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="535.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.UpdateEmployeeController">
    <children>
       <Label layoutX="57.0" layoutY="86.0" prefHeight="32.0" prefWidth="48.0" text="User Id" />
@@ -32,7 +31,7 @@
       </Label>
       <JFXTextField fx:id="txtName" labelFloat="true" layoutX="60.0" layoutY="244.0" onAction="#txtNameOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Name" />
       <JFXTextField fx:id="txtActivity" labelFloat="true" layoutX="60.0" layoutY="297.0" onAction="#tctActivityOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Activity" />
-      <JFXTextField fx:id="txtsalary" labelFloat="true" layoutX="60.0" layoutY="349.0" onAction="#txtSalaryOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Salary" />
+      <JFXTextField fx:id="txtsalary" labelFloat="true" layoutX="60.0" layoutY="349.0" onAction="#txtSalaryOnAction" onKeyReleased="#txtSalaryKeyReleasedOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Salary" />
       <JFXTextField fx:id="txtMonth" labelFloat="true" layoutX="60.0" layoutY="398.0" onAction="#txtMonthOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Month" />
       <JFXTextField fx:id="txtEmployeeId" labelFloat="true" layoutX="61.0" layoutY="202.0" onAction="#txtEmployeeIdOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Employee Id" />
       <DatePicker fx:id="dpDate" layoutX="59.0" layoutY="437.0" onAction="#dpDateOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Date" />

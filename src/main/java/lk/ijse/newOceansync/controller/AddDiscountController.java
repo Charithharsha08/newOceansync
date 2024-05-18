@@ -6,8 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Discount;
 import lk.ijse.newOceansync.repository.DiscountRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 
@@ -70,9 +73,19 @@ public class AddDiscountController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        double discount;
         String discountId  = lblDiscountId.getText();
         String type = cmbDiscountType.getValue().toString();
-        double discount = Double.parseDouble(txtDiscount.getText());
+        try {
+            discount = Double.parseDouble(txtDiscount.getText());
+        }catch (NumberFormatException e){
+            new Alert(Alert.AlertType.ERROR, "Invalid discount").show();
+            txtDiscount.requestFocus();
+            return;
+        }
+        if (!isValid()){
+
+
 
         Discount discount1 = new Discount(discountId,type,discount);
         try {
@@ -87,7 +100,7 @@ public class AddDiscountController {
             throw new RuntimeException(e);
         }
 
-
+        }
     }
 
     private void clearFields() {
@@ -107,6 +120,16 @@ public class AddDiscountController {
         btnSaveOnAction(event);
 
     }
+
+    public void txtDiscountKeyReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.DISCOUNT, txtDiscount);
+    }
+
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.DISCOUNT, txtDiscount)) return false;
+        return true;
+    }
+
     enum DiscountType {
         LOCAL, FOREIGN
     }

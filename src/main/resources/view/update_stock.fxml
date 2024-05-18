@@ -68,7 +68,7 @@
          </font>
       </Label>
       <JFXTextField fx:id="txtname" labelFloat="true" layoutX="155.0" layoutY="296.0" onAction="#txtNameOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Name" />
-      <JFXTextField fx:id="txtPrice" labelFloat="true" layoutX="155.0" layoutY="350.0" onAction="#txtPriceOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Price" />
-      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="155.0" layoutY="406.0" onAction="#txtQtyonAction" prefHeight="25.0" prefWidth="261.0" promptText="Qty" />
+      <JFXTextField fx:id="txtPrice" labelFloat="true" layoutX="155.0" layoutY="350.0" onAction="#txtPriceOnAction" onKeyReleased="#txtPriceKeyRelealeOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Price" />
+      <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="155.0" layoutY="406.0" onAction="#txtQtyonAction" onKeyReleased="#txtQtyKeyReleasedOnAction" prefHeight="25.0" prefWidth="261.0" promptText="Qty" />
    </children>
 </AnchorPane>

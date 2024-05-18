@@ -4,9 +4,12 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.newOceansync.model.Employee;
 import lk.ijse.newOceansync.repository.EmployeeRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
@@ -91,13 +94,18 @@ public class AddEmployeeController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        double salary = 0.0;
        String id = lblId.getText();
        String userId = lblUserId.getText();
       // String userName = lblUserName.getText();
        String employeeId = txtEmployeeId.getText();
        String name = txtName.getText();
        String activity = txtActivity.getText();
-       double salary = Double.parseDouble(txtsalary.getText());
+       try {
+           salary = Double.parseDouble(txtsalary.getText());
+       } catch (NumberFormatException e) {
+        new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric value for salary").show();
+       }
        String month = txtMonth.getText();
        Date date = Date.valueOf(dpDate.getValue().toString());
 
@@ -107,13 +115,13 @@ public class AddEmployeeController {
            new Alert(Alert.AlertType.INFORMATION, "Please Enter Name").show();
         }if (activity.isEmpty()){
             new Alert(Alert.AlertType.INFORMATION, "Please Enter Activity").show();
-        }if (salary == 0){
-            new Alert(Alert.AlertType.INFORMATION, "Please Enter Salary").show();
         }if (month.isEmpty()){
             new Alert(Alert.AlertType.INFORMATION, "Please Enter Month").show();
         }if (date.toString().isEmpty()){
             new Alert(Alert.AlertType.INFORMATION, "Please Enter Date").show();
         }
+       if (!isValid()){
+
        Employee employee = new Employee(id,employeeId,name,activity,month,salary,date,userId);
 
         try {
@@ -127,7 +135,7 @@ public class AddEmployeeController {
             new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
             throw new RuntimeException(e);
         }
-
+       }
 
     }
 
@@ -162,4 +170,11 @@ txtActivity.requestFocus();
 txtMonth.requestFocus();
     }
 
+    public void txtSalaryKeyReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.SALARY, txtsalary);
+    }
+    public boolean isValid(){
+        if (!Regex.setTextColor(TextField.SALARY, txtsalary)) return false;
+        return true;
+    }
 }

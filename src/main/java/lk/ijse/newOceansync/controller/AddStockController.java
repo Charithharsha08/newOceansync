@@ -71,10 +71,24 @@ public class AddStockController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        double price;
+        int qty;
         String stockId = lblStockId.getText();
         String name = txtname.getText();
-        double price = Double.parseDouble(txtPrice.getText());
-        int qty = Integer.parseInt(txtQty.getText());
+try {
+    price = Double.parseDouble(txtPrice.getText());
+}catch (NumberFormatException e){
+    new Alert(Alert.AlertType.ERROR, "Invalid price").show();
+    txtPrice.requestFocus();
+    return;
+}
+        try {
+            qty = Integer.parseInt(txtQty.getText());
+        }catch (NumberFormatException e){
+            new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
+            txtQty.requestFocus();
+            return;
+        }
         String userId = lblUserId.getText();
 
         if (isValid()) {

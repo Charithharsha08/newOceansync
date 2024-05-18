@@ -23,7 +23,7 @@
       </ImageView>
       <JFXTextField fx:id="txtCustomerName" labelFloat="true" layoutX="102.0" layoutY="207.0" onAction="#txtCustomerNameOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Customer Name" />
       <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="102.0" layoutY="281.0" onAction="#txtAddressOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Address" />
-      <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="102.0" layoutY="355.0" onAction="#txtTelOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Telephone Number" />
+      <JFXTextField fx:id="txtTel" labelFloat="true" layoutX="102.0" layoutY="355.0" onAction="#txtTelOnAction" onKeyReleased="#telephoneNumKeyReleaseOnAction" prefHeight="32.0" prefWidth="200.0" promptText="Telephone Number" />
       <Label fx:id="lblCustomerId" layoutX="102.0" layoutY="149.0" prefHeight="32.0" prefWidth="200.0">
          <opaqueInsets>
             <Insets bottom="10.0" />

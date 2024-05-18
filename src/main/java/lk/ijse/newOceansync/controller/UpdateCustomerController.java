@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Customer;
 import lk.ijse.newOceansync.repository.CustomerRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 import java.sql.SQLException;
 
@@ -47,6 +50,9 @@ public class UpdateCustomerController {
         }if (tel.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please Enter Telephone Number").show();
         }
+        if (isValid()){
+
+
         Customer customer = new Customer(customerId, customerName, address, tel);
         try {
             boolean customerSaved = CustomerRepo.customerUpdate(customer);
@@ -58,6 +64,7 @@ public class UpdateCustomerController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             throw new RuntimeException(e);
+            }
         }
     }
 
@@ -86,5 +93,13 @@ public class UpdateCustomerController {
         }else {
             new Alert(Alert.AlertType.ERROR, "Customer Not Found").show();
         }
+    }
+
+    public void telephoneNumKeyReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.MOBILENUMBER, txtTel);
+    }
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.MOBILENUMBER, txtTel)) return false;
+        return true;
     }
 }

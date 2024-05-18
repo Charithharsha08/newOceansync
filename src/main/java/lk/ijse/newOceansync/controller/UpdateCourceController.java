@@ -5,8 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.newOceansync.model.Cource;
 import lk.ijse.newOceansync.repository.CourceRepo;
+import lk.ijse.newOceansync.util.Regex;
+import lk.ijse.newOceansync.util.TextField;
 
 public class UpdateCourceController {
 
@@ -41,9 +44,16 @@ public class UpdateCourceController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        double cost;
         String id = txtSearchId.getText();
         String name = txtName.getText();
-        double cost = Double.parseDouble(txtCost.getText());
+        try {
+            cost = Double.parseDouble(txtCost.getText());
+        }catch (NumberFormatException e){
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric value for cost").show();
+            txtCost.requestFocus();
+            return;
+        }
         String duration = txtDuration.getText();
 
         if (txtName.getText().isEmpty()) {
@@ -55,6 +65,9 @@ public class UpdateCourceController {
         if (txtDuration.getText().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please Enter Cource Duration").show();
         }
+        if (isValid()) {
+
+
         Cource cource = new Cource(id, name, duration, cost);
         boolean isUpdated = CourceRepo.courceUpdate(cource);
         if (isUpdated) {
@@ -63,7 +76,7 @@ public class UpdateCourceController {
         }else {
             new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
         }
-
+        }
     }
 
     @FXML
@@ -97,4 +110,11 @@ txtCost.requestFocus();
 
     }
 
+    public void txtCostKeyReleaseOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT, txtCost);
+    }
+    public boolean isValid() {
+        if (!Regex.setTextColor(TextField.AMOUNT, txtCost)) return false;
+        return true;
+    }
 }

@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="454.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.newOceansync.controller.AddActivityController">
    <children>
       <JFXTextField fx:id="txtName" labelFloat="true" layoutX="506.0" layoutY="191.0" onAction="#txtNameOnAction" promptText="Name" />
-      <JFXTextField fx:id="txtCost" labelFloat="true" layoutX="506.0" layoutY="242.0" onAction="#txtCostOnAction" promptText="Cost" />
+      <JFXTextField fx:id="txtCost" labelFloat="true" layoutX="506.0" layoutY="242.0" onAction="#txtCostOnAction" onKeyReleased="#txtCostOnKeyRelease" promptText="Cost" />
       <JFXTextField fx:id="txtLocation" labelFloat="true" layoutX="696.0" layoutY="242.0" onAction="#txtLocationOnAction" prefHeight="25.0" prefWidth="135.0" promptText="Location" />
       <JFXTextField fx:id="txtType" labelFloat="true" layoutX="699.0" layoutY="192.0" onAction="#txtTypeOnAction" promptText="Type" />
       <JFXButton buttonType="RAISED" layoutX="638.0" layoutY="311.0" onAction="#btnSaveOnAction" prefHeight="37.0" prefWidth="82.0" styleClass="pane_1" stylesheets="@../css/design.css" text="Save">
