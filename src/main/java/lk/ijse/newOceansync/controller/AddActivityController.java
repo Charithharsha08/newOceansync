@@ -14,6 +14,10 @@ import lk.ijse.newOceansync.repository.CustomerRepo;
 import lk.ijse.newOceansync.util.Regex;
 import lk.ijse.newOceansync.util.TextField;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,12 +38,8 @@ public class AddActivityController {
     @FXML
     private JFXTextField txtType;
 
-    private static final String ACCOUNT_SID = "AC3c1af771ad6b846145a1b66d0532d3c6";
-    private static final String AUTH_TOKEN = "d379722ce22e027b8b6c474cde7f7d4f";
-    private static final String TWILIO_PHONE_NUMBER = "+12077421415";
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         loadNextActivityId();
 
     }
@@ -113,7 +113,8 @@ public class AddActivityController {
                 if(isSaved){
                     new Alert(Alert.AlertType.CONFIRMATION, "Activity saved!").show();
                     clearFields();
-                    sendSmsToCustomers("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
+                    String message = String.format("Dear Valued Customer, we are pleased to announce a new activity at the Submarine Diving Center. Don't miss out on this exciting opportunity. Join us and experience it today!");
+                    sendSmsToCustomers(message);
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, "Failed to save activity: " + e.getMessage()).show();
@@ -132,14 +133,36 @@ public class AddActivityController {
         try {
             List<String> customerPhoneNumbers = CustomerRepo.getAllCustomerPhoneNumbers();
             for (String phoneNumber : customerPhoneNumbers) {
-                Message.creator(
-                        new com.twilio.type.PhoneNumber(phoneNumber),
-                        new com.twilio.type.PhoneNumber(TWILIO_PHONE_NUMBER),
-                        message
-                ).create();
+                sendSms(phoneNumber, message);
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to send SMS: " + e.getMessage()).show();
+        }
+    }
+
+    private void sendSms(String phoneNumber, String message) {
+        try {
+            String encodedMessage = java.net.URLEncoder.encode(message, "UTF-8");
+            String urlString = String.format("https://raviyaapi.onrender.com/send_message?to=%s&msg=%s", phoneNumber, encodedMessage);
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String inputLine;
+                StringBuilder content = new StringBuilder();
+                while ((inputLine = in.readLine()) != null) {
+                    content.append(inputLine);
+                }
+                in.close();
+                connection.disconnect();
+                System.out.println("SMS sent successfully: " + content.toString());
+            } else {
+                System.out.println("Failed to send SMS, response code: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
