@@ -11,6 +11,7 @@ import javafx.stage.Window;
 import lk.ijse.newOceansync.service.LoadingTask;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class SplashScreenController {
 
@@ -28,7 +29,7 @@ public class SplashScreenController {
         LoadingTask task = new LoadingTask();
         task.progressProperty().addListener((observable, oldValue, newValue) -> {
             String formattedNum = String.format("%.0f", newValue.doubleValue() * 100);
-            System.out.println(formattedNum);
+            //System.out.println(formattedNum);
             lblProgress.setText(formattedNum + " %");
             recSub.setWidth(recMain.getWidth() * newValue.doubleValue());
             if (newValue.doubleValue() == 1.0) {
@@ -43,9 +44,13 @@ public class SplashScreenController {
 
     private void openLoginForm() {
         try {
-            AnchorPane node = FXMLLoader.load(getClass().getResource("/view/login_page.fxml"));
+            URL resource = getClass().getResource("/view/login_page.fxml");
+            assert resource != null : "FXML not found!";
+            AnchorPane node = FXMLLoader.load(resource);
+
             Scene scene = new Scene(node);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
@@ -53,4 +58,5 @@ public class SplashScreenController {
             e.printStackTrace();
         }
     }
+
 }

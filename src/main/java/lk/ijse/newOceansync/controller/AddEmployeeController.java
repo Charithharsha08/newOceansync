@@ -49,7 +49,7 @@ public class AddEmployeeController {
     private JFXTextField txtsalary;
 
     private AutoCompletionBinding<String> autoCompleteBinding;
-    private String[] possibleSuggestion = {"january","february","march","april","may","june","july","august","september","october","november","december"};
+    private final String[] possibleSuggestion = {"january","february","march","april","may","june","july","august","september","october","november","december"};
     public void initialize(){
         TextFields.bindAutoCompletion(txtMonth, possibleSuggestion);
         lblUserId.setText(LoginFormController.credential[0]);

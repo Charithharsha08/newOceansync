@@ -12,7 +12,7 @@ public class DbConnection {
         connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/oceansync",
                 "root",
-                "Ijse@132"
+                "Ijse@123"
         );
     }
     public static DbConnection getInstance() throws SQLException {

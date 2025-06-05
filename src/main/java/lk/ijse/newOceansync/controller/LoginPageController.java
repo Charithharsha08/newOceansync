@@ -19,7 +19,7 @@ public class LoginPageController {
 
     public void initialize() throws IOException {
         AnchorPane loginForm = FXMLLoader.load(
-                this.getClass().getResource("/view/login_form.fxml."));
+                this.getClass().getResource("/view/login_form.fxml"));
         this.sidePane.getChildren().clear();
         this.sidePane.getChildren().add(loginForm);
     }

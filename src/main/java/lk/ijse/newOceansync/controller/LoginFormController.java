@@ -82,7 +82,7 @@ public class LoginFormController {
     @FXML
     void linkRegistrationOnAction(ActionEvent event) throws IOException {
         AnchorPane activityPane = FXMLLoader.load(
-                this.getClass().getResource("/view/registration_form.fxml."));
+                this.getClass().getResource("/view/registration_form.fxml"));
         this.sidePane.getChildren().clear();
         this.sidePane.getChildren().add(activityPane);
     }
